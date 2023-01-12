@@ -1,20 +1,15 @@
-import React, { useEffect,useState,useRef} from 'react'
+import React, {useState,useRef} from 'react'
 import {Redirect, Link} from 'react-router-dom'
 import axios from 'axios'
 
-function Login(){
+function Login({update, setUpdate}){
     const [redirect, setRedirect] = useState(false)
     const emailInputRef= useRef();
     const emailInputRefError=useRef();
     const passwordInputRef= useRef();
     const passwordInputRefError=useRef();
     const[checked, setChecked] = useState();
-    const  [update, setUpdate]=React.useState(false)
-    
 
-    useEffect(()=>{
-
-    },[update])
    const handleValidation= async(event)=>{
     
         event.preventDefault();
@@ -50,17 +45,18 @@ function Login(){
             localStorage.setItem('mail', response.data.user.mail)
             localStorage.setItem('phone', response.data.user.phone)
             localStorage.setItem('id', response.data.user.id)
+            setUpdate(!update)
             setRedirect(true)
             
-          }
-           )
+            
+          }) 
          
         }catch(error){
           console.log("error try:", error)
         }
         
       }
-    setUpdate(true)
+    
     return (
         <form className='login' onSubmit={handleValidation} >
 

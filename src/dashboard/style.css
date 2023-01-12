@@ -8,24 +8,6 @@ h1{
     top: -10px;
     left: 30%;
 }
-.deconnect{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-   height: 30px;
-    background: #005C96;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-
-}
-.deconnect:hover{
-    background: white;
-    color: #005C96;
-}
 .event{
     position: absolute;
      height: 30px;

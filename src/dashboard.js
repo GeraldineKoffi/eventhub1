@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React from "react";
 import {Link} from 'react-router-dom'
 import Interest from './dashboard/interest'
 import Profil from './dashboard/profil'
@@ -18,7 +18,6 @@ function dashboard(){
 
     return(
         <div className="dashboard">
-             <Link to={'./'}><button className="deconnect" onClick={logout}>Déconnexion</button></Link> 
            <Profil/>
            <Interest/>
         </div>

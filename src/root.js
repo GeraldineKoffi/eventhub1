@@ -20,14 +20,19 @@ import InscriptionAdmin from './InscriptionAdmin'
 import Role from './role'
 import RoleConnect from './roleConnect'
 import LoginOrg from './loginOrg'
+import {useEffect} from 'react'
 
 
-function All({ setUpate}) {
+function All() {
+	const [update, setUpdate]=React.useState(false)
 	
+    useEffect(()=>{
+
+    },[update])
 	return (
 		<Router>
 
-			<Header setUpate={setUpate(true)} />
+			<Header setUpdate={setUpdate} />
 
 			<Switch>
 
@@ -48,7 +53,7 @@ function All({ setUpate}) {
                 </Route>
 
 				<Route path={"/login"}>
-					<Login setUpate={setUpate(true)} />
+					<Login update={update} setUpdate={setUpdate} />
 				</Route>
 
 				<Route path={"/loginOrg"}>

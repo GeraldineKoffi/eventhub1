@@ -4,11 +4,10 @@ import Axios from 'axios';
 
 function Interest(){
     const [data, setDate] = useState([])
+
     useEffect(() =>{
     const user=parseInt(localStorage.getItem('id'))
-     Axios.get("http://localhost:4000/ticket/user",{
-        user
-    })
+     Axios.get("http://localhost:4000/ticket/user",{user})
         .then(res => {
             console.log(res);
             setDate(res.data)
@@ -19,15 +18,14 @@ function Interest(){
 ); 
 
 const arr = data
-// 
-// .map((data, index) => {
-    // return (
-        // <div className='listEvent' key={index}>
-                {/* <h5>{data.title} {data.description} {data.date} </h5>   */}
-            {/* </div> */}
-        // )
-    // }
-    // )
+ .map((data, index) => {
+     return (
+     <div className='listEvent' key={index}>
+                 <h5>{data.title} {data.description} {data.date} </h5>   
+            </div> 
+        )
+    }
+     )
     
     return(
     <div className='interest'>

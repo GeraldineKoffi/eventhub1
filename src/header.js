@@ -4,10 +4,10 @@ import {Link} from 'react-router-dom'
 import menu from './mesImages/menu.png'
 
 
-function Header(){
+function Header( { update, setUpdate } ){
     const [show, setShow] = React.useState(false)
-     const  [update, setUpdate]=React.useState(false)
-     useEffect(()=>{
+    //  const  [update, setUpdate]=React.useState(false)
+    useEffect(()=>{
 
      },[update])
      function Menu(){
