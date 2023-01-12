@@ -12,6 +12,8 @@ import InscriptionOrg from './inscriptionOrg'
 import EventList from './eventList'
 import Events from './events'
 import ForgetPass from './forgetPass'
+import ForgetPassOrg from './forgetPassOrg'
+import ForgetPassAd from './forgetPassAd'
 import Dashboard from './dashboard'
 import DashboardAd from './dashboardAd'
 import DashboardOrg from './dashboardOrg'
@@ -66,6 +68,12 @@ function All() {
                 
 				<Route path={"/forgetPass"}>
                  <ForgetPass />
+                </Route>
+				<Route path={"/forgetPassOrg"}>
+                 <ForgetPassOrg />
+                </Route>
+				<Route path={"/forgetPassAd"}>
+                 <ForgetPassAd />
                 </Route>
 
 				<Route path={"/role"}>

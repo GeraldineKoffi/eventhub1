@@ -2,16 +2,17 @@ import React, {useState, useRef} from "react";
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 
-function ForgetPass(){
+function ForgetPassOrg(){
     const [redirect, setRedirect] = useState(false)
     const newPassInputRef=useRef();
+    const emailInputRef=useRef();
    
-    const setUpdate = async()=>{
+    const setUpdate = ()=>{
         const pass=newPassInputRef.current.value;
+        const mail=emailInputRef.current.value;
         try{
-         await  axios.post("http://localhost:4000/user",{
-            pass
-           })
+         axios.post("http://localhost:4000/organisateur/change",{mail,pass})
+          
         setRedirect(true)
         }
      catch (err) {
@@ -21,17 +22,17 @@ function ForgetPass(){
   }
     
     return(
-    <form className="login">
+    <form className="login" onSubmit={setUpdate}>
         <h3 className="modif">Mot de passe oublié</h3>
         <div className="forget">
-        <label>Entrer un nouveau mot de passe:</label><br/>
-        <input placeholder="Entrer un nouveau mot de passe" name="pass" ref={newPassInputRef} type="password"/><br/>
-        <label>Confirmer le nouveau mot de passe:</label><br/>
-        <input placeholder="Confirmer le nouveau mot de passe" type="password" name="confirm"/><br/>
-        <button className="valid" onClick={setUpdate}>Changer</button>
-        {redirect? <Redirect to={"./login"} />: null}
+        <label>Email</label><br/>
+        <input placeholder="Entrer un email" name="email" ref={emailInputRef} type="email"/><br/>
+        <label>Nouveau mot de passe:</label><br/>
+        <input placeholder="Entrer le nouveau mot de passe" type="password" name="confirm" ref={newPassInputRef}/><br/>
+        <button className="valid">Changer</button>
         </div>
+        {redirect? <Redirect to="/loginOrg" />: null}
     </form>
     )
 }
-export default ForgetPass
+export default ForgetPassOrg

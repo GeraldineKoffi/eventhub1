@@ -68,7 +68,7 @@ function LoginAdmin(){
         <input type="checkbox" className='remember' value={checked} onChange={() => setChecked(!checked)}  />
         <label className='text'> Se souvenir de moi</label>
 
-         <Link to={'/forgetPass'} className='pass'>Mot de passe oublié?</Link><br />
+         <Link to={'/forgetPassAd'} className='pass'>Mot de passe oublié?</Link><br />
          
           <button className='valid'>Valider</button><br/>
           {redirect? <Redirect to="/dashboardAd" />: null}

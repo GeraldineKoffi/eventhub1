@@ -3,10 +3,10 @@ import Axios from 'axios';
 import {Link} from 'react-router-dom'
 import ProfilOrg from './dashboard/profilOrg'
 import  './dashboard/style.css'
+import axios from 'axios';
 
 function dashboardOrg(){
-    const org=localStorage.getItem('id')
-  
+
       const [data, setDate] = useState([])
       useEffect(() => {
         Axios.get("http://localhost:4000/organisateur/" + localStorage.getItem('id'))
@@ -17,6 +17,10 @@ function dashboardOrg(){
             ).catch(err => console.log(err))
     }, []
     );
+    axios.get("http://localhost:4000/ticket/event/"+ data.id)
+            .then(res=>{
+              console.log(res.data)
+            })
     const arr = data 
   .map((data, index) => {
 

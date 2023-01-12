@@ -2,7 +2,7 @@ import React, {useState, useRef} from "react";
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 
-function ForgetPass(){
+function ForgetPassAd(){
     const [redirect, setRedirect] = useState(false)
     const newPassInputRef=useRef();
     const emailInputRef=useRef();
@@ -11,7 +11,7 @@ function ForgetPass(){
         const pass=newPassInputRef.current.value;
         const mail=emailInputRef.current.value;
         try{
-        axios.post("http://localhost:4000/user/change",{mail,pass})
+        axios.post("http://localhost:4000/admin/change",{mail,pass})
           
         setRedirect(true)
         }
@@ -31,8 +31,8 @@ function ForgetPass(){
         <input placeholder="Entrer le nouveau mot de passe" type="password" name="confirm" ref={newPassInputRef}/><br/>
         <button className="valid">Changer</button>
         </div>
-        {redirect? <Redirect to="/login" />: null}
+        {redirect? <Redirect to="/loginAdmin" />: null}
     </form>
     )
 }
-export default ForgetPass
+export default ForgetPassAd

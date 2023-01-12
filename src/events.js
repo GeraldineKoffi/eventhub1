@@ -22,9 +22,7 @@ function Events(){
         const prix=priceInputRef.current.value;
         const statut= statutInputRef.current.value;
         const actif=actifInputRef.current.value
-        if(statut==="gratuit"){
-          prix=0
-        }
+      
         const organisateurId=localStorage.getItem('id');
         
 

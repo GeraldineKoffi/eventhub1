@@ -6,7 +6,7 @@ import menu from './mesImages/menu.png'
 
 function Header( { update, setUpdate } ){
     const [show, setShow] = React.useState(false)
-    //  const  [update, setUpdate]=React.useState(false)
+    
     useEffect(()=>{
 
      },[update])
@@ -36,7 +36,6 @@ function Header( { update, setUpdate } ){
           <div className="menuAll">
             
           <Link to={'./Role'}><button id="link">Inscription</button></Link><br/>
-          <Link to={'/roleConnect'}><button id="link" >Connexion</button></Link><br/>
           <Link to={'/'}><button id="link" onClick={logout} >Déconnexion</button></Link><br/>
           <Link to={'./eventList'}><button id="link">Evènements</button></Link> 
       </div>}
