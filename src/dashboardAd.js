@@ -10,16 +10,7 @@ import {Link} from 'react-router-dom'
 
 function dashboardAd(){
     const [data, setDate] = useState([])
-    const [search, setSearch]=useState([])
-    const logout=()=>{
-        localStorage.removeItem('access_token')
-        localStorage.removeItem("lastNname")
-        localStorage.removeItem("telephone")
-        localStorage.removeItem("firstName")
-        localStorage.removeItem("mail")
-        localStorage.removeItem("id")
-    }
-     
+    
     useEffect(() => {
         Axios.get("http://localhost:4000/event")
             .then(res => {
@@ -29,16 +20,8 @@ function dashboardAd(){
             ).catch(err => console.log(err))
     },[] 
     );   
-
-       const handleSearch=(e)=>{
-    let value = e.target.value;
-    setSearch(value)
-   }
      const arr = data
    
-  .filter((val)=>{
-          return val.title.includes(search)
-  })
   
 .map((data, index) => {
     return(
@@ -60,7 +43,6 @@ function dashboardAd(){
            <UserBloquer/><br/>
            <h3></h3>
            <OrgBloquer/>
-           <Link to={'./'}><button className="deconnect" onClickCapture={logout}>Déconnexion</button></Link> 
 
            
         </div>

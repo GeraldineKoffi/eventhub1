@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect, useState, reverse } from 'react';
 import Axios from 'axios';
-import utilisateur1 from './dashboard/utilisateur1.png'
 import rech from './mesImages/rech.jpg'
 import axios from 'axios'
 
@@ -43,19 +42,19 @@ function EventList() {
     let value = e.target.value;
     setSearch(value)
    }
-    const arr = data
+    const arr=data
      
     .filter((val)=>{
             return val.title.includes(search)
     })
     
   .map((data, index) => {
-    const statut= "payant"
-    if(data.statut===statut){
+    if(data.actif===true){
+
+    if(data.statut==="Payant"){
         return (
             <div className='eventList' key={index}>
                 <h5 className='title'>{data.title} </h5>
-                <img src={utilisateur1} className="imag" alt=''/>
                 <h5 className='descrp'>{data.description}</h5>
                 <h5 className='date'> {data.date}</h5>  
                 <h5 className='prix'>Prix: {data.prix}FCFA</h5>  
@@ -67,7 +66,6 @@ function EventList() {
             return(
                 <div className='eventList' key={index}>
                 <h5 className='title'>{data.title} </h5>
-                <img src={utilisateur1} className="imag" alt=''/>
                 <h5 className='descrp'>{data.description}</h5>
                 <h5 className='date'> {data.date}</h5>  
                 <h5 className='prix'> {data.statut}</h5>  
@@ -75,6 +73,9 @@ function EventList() {
                 </div>
             )
         }
+    }else{
+
+    }
     })
     return (
         <div className='eventL'>

@@ -89,73 +89,52 @@ hr{
     width: 80%;
     height: 500px;
     border: none;
+    text-align: center;
     box-shadow: 0 10px 10px  rgb(138, 161, 182);
-    border-spacing: 10px;
+    top: -50px;
 }
 .title{
     position: relative;
-    left: 60%;
+    text-align: center;
     top: 30px;
     font-family: 'Comforter Brush', cursive;
     color: #005C96;
-    font-size: 40px;
+    font-size: 50px;
 }
-.imag{
-    width: 300px;
-    position: relative;
-    left: 15%;
-    top: -20%;
-}
+
 .descrp{
     color: #005C96;
     position: relative;
     font-family: 'poppins', cursive;
-    left: 60%;
-    top: -75%;
     font-size: 25px;
+    top: -50px;
 }
 .date{
     color: #005C96;
 position: relative;
 font-family: 'poppins', cursive;
-top: -80%;
-left: 60%;
 font-size: 25px;
+top: -50px;
 }
 .status{
     color: #005C96;
     position: relative;
-    top: -80%;
-    left: 60%;
     font-family: 'poppins', cursive;
     font-size: 25px;
+    top: -50px;
 }
 .prix{
     color: #005C96;
 position: relative;
-top: -80%;
-left: 60%;
 font-family: 'poppins', cursive;
 font-size: 25px;
+top: -50px;
 }
 .eventList .valid{
     position: relative;
-    position: relative;
-    top: -80%;
     font-family: 'poppins', cursive;
-    left: 60%;
     
  }
-.achat{
-    position: absolute;
-    top: 80px;
-    left: 45%;
-    background: rgba(0, 0,0, 0.5);
-    width: 220px;
-    height: 220px;
-    color: white;
-}
-
 @media only screen and (max-width:1000px){
     .eventList{
         left: 100px;
@@ -201,4 +180,18 @@ font-size: 25px;
         top: -15%;
     }
 
+}
+.tableEvent{
+    position: absolute;
+    top: 50px;
+    left: 30%;
+
+}
+.tableUser h1{
+    position: relative;
+}
+.tableUser{
+    position: absolute;
+    top: 100px;
+    left: 30%;
 }

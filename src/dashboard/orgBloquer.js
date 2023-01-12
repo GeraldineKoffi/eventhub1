@@ -18,7 +18,7 @@ const arr = data
 .map((data, index) => {
     return(
         <tr key={index}>
-        <td>{data.name}</td><td> {data.adresse} </td><td>{data.tel}</td><td> {data.mail}</td><td>{data.actif}</td><td> {data.gerant}</td><td> {data.num_RCS}</td><td><button className="event1">Editer l'organisateur</button></td>
+        <td>{data.name}</td><td> {data.adresse} </td><td>{data.tel}</td><td> {data.mail}</td><td>{data.actif}</td><td> {data.gerant}</td><td> {data.num_RCS}</td><td><button>Editer l'organisateur</button></td>
         </tr>
     )
 })

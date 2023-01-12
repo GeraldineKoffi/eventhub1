@@ -10,26 +10,16 @@ const [data, setDate] = useState([])
 
 
  const change= async(id,index)=>{
+     useEffect(()=>{
     Axios.delete("http://localhost:4000/user/"+id)
     .then(
         res=>{
             data[index]=res.data
-            setDate(data)
-             arr = data
-.map((data, index) => {
-    return(
-        <tr key={index}>
-            <td>{data.id}</td>
-        <td>{data.lastName}</td><td> {data.firstName}</td><td> {data.phone}</td><td> {data.mail}</td><td>{data.actif}</td><td>
-        <button onClick={()=>change(data.id,index)} >Editer l'utilisateur</button>
-        </td>
-        </tr>
-    
-    )
-    setDate(arr)
-})
-        }
-    )
+                setDate(data)
+                
+            }
+            )
+        },[] )
  }
 
 useEffect(() => {
