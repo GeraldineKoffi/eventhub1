@@ -15,7 +15,7 @@ import ForgetPass from './forgetPass'
 import Dashboard from './dashboard'
 import DashboardAd from './dashboardAd'
 import DashboardOrg from './dashboardOrg'
-import InscritEvent from './inscritEvent'
+import ModifEvent from './modifEvent'
 import InscriptionAdmin from './InscriptionAdmin'
 import Role from './role'
 import RoleConnect from './roleConnect'
@@ -100,8 +100,8 @@ function All() {
                 
 				
 				
-			<Route path={"/inscritEvent"}>
-              <InscritEvent />
+			<Route path={"/modifEvent"}>
+              <ModifEvent />
             </Route>
              
 			</Switch>
