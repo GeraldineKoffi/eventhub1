@@ -1,10 +1,17 @@
+
 .dashboard{
     position: relative;
-    top: 20px;
+    top: 30px;
+}
+h1{
+    position: absolute;
+    top: -10px;
+    left: 30%;
 }
 .deconnect{
     position: absolute;
     right: 10px;
+    top: 10px;
    height: 30px;
     background: #005C96;
     color: white;
@@ -13,6 +20,7 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
+
 }
 .deconnect:hover{
     background: white;
@@ -20,8 +28,9 @@
 }
 .event{
     position: absolute;
-    right: 150px;
-   height: 30px;
+     height: 30px;
+     right: 130px;
+   top: 10px;
     background: #005C96;
     color: white;
     font-size: 15px;
@@ -35,10 +44,21 @@
     background: white;
     color: #005C96;
 }
+.event2{
+    width: 25%;
+    border: 1px solid #005C96;
+    border-radius: 5px;
+    position: absolute;
+    right: 20px;
+    height: 30px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    top: 100px;
+}/*
 .event1{
     position: absolute;
-    right: 10px;
-   height: 30px;
+     height: 30px;
     background: #005C96;
     color: white;
     font-size: 15px;
@@ -46,29 +66,13 @@
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    top: 150px;
+    top: 30px;
+    right: 10px;
 }
 .event1:hover{
     background: white;
     color: #005C96;
-}
-.event2{
-    position: absolute;
-    right: 10px;
-   height: 30px;
-    background: #005C96;
-    color: white;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    top: 100px;
-}
-.event2:hover{
-    background: white;
-    color: #005C96;
-}
+}*/
 .imgProfil{
     width: 200px;
     height: 190px;
@@ -126,12 +130,13 @@
     left: 10px;
 }
 .infoModif{
-    position: relative;
-    top: -40px;
+    position: absolute;
+    
 }
 .modifProfil .valid{
     position: relative;
-    top: 50px;
+    top: 20px;
+    left: 10px;
     width: 150px;
     height: 30px;
     background-color: #005C96;
@@ -148,11 +153,11 @@
 }
 .profilOrg .valid{
  position: relative;
- top: -80px;
+ top: -60px;
 }
 .profilOrg .modifProfil{
     position: relative;
-    top: -120px;
+    top: -100px;
     left: 10px;
 }
 .profilOrg input{
@@ -160,16 +165,88 @@
 }
 .profilOrg .modifProfil .valid{
     position: relative;
-    top: 56px;
+    top: 15px;
+    left: 10px;
+   
+}
+/*liste des evenements*/
+.listEvent{
+    width: 40%;
+    height: 80px;
+    border: 1px SOLID #005C96;
+    border-radius: 5px;
+    position: relative;
+    top: -500px;
+    left: -20px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+.listEvent h5{
+    position: relative;
+    font-size: 15px;
+    top: 5px;
+    left: 10px;
+}
+.dashboardAd
+{
+    position: relative;
+    top: 30px;
+}
+.dashboardAd .listEvent{
+    position: relative;
+   
+}
+.useBloquer .list{
+    width: 40%;
+    height: 80px;
+    border: 1px SOLID #005C96;
+    border-radius: 5px;
+    position: relative;
+    top: -500px;
+    left: -20px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+.useBloquer H1{
+    position: relative;
+    top: 30px;
+}
+/*modification evenements*/
+.modifEvent{
+    width: 80%;
+    height: 550px;
+    box-shadow: 0 10px 10px  rgb(138, 161, 182);
+    position: absolute;
+    background: #005C96;
+    top: -80px;
+    left: 70px;
+}
+.modifProfil input{
+    width: 250px;
+}
+
+.modifEvent .valid{
+    position: absolute;
+    margin-top: 95%;
+    color: black;
+    border: 1px solid black;
+}
+
+.dashboardAd .listEvent{
+    top: -95px;
 }
 /*interest*/
 .interest{
     position: absolute;
-    right: 30%;
-    top: 90px;
-    width: 45%;
+    top: 10px;
+    width: 50%;
     height: 90px;
-    background: white;
     border-radius: 5px;
-    border: 1px solid black;
+    left: 30%;
+}
+.interest .listEvent{
+    top: 5px;
+    text-align: center;
+    width: 90%;
+    font-size: 20px;
 }

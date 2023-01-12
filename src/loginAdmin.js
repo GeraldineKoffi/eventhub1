@@ -5,7 +5,9 @@ import axios from 'axios'
 function LoginAdmin(){
     const [redirect, setRedirect] = React.useState(false)
     const emailInputRef= useRef();
+    const emailInputRefError=useRef();
     const passwordInputRef= useRef();
+    const passwordInputRefError=useRef();
     const[checked, setChecked] = React.useState();
 
    
@@ -14,7 +16,16 @@ function LoginAdmin(){
         event.preventDefault();
         const Mail= emailInputRef.current.value; 
         const Pass= passwordInputRef.current.value;
-      
+        if(!Mail){
+          emailInputRefError.current.innerHTML="Ce champs est requis!"
+        }else{
+          emailInputRefError.current.innerHTML=""
+        }
+        if(!Pass){
+          passwordInputRefError.current.innerHTML="Ce champs est requis!"
+        }else{
+          passwordInputRefError.current.innerHTML=""
+        }
         try{
         await axios.post('http://localhost:4000/Auth/admin',{
             Mail,
@@ -47,10 +58,13 @@ function LoginAdmin(){
         <div className='head'>Login Admin</div><br/>
 
         <label>Email</label><br/>
-        <input required placeholder='Entrer votre email' name='email' type="email" ref={emailInputRef}/><br/>
+        <input  placeholder='Entrer votre email' name='email' type="email" ref={emailInputRef}/><br/>
+        <div className='error' ref={emailInputRefError}  style={{ color:"red"}}/>
+
         <label>Mot de passe</label><br/>
-        <input required placeholder='Entrer votre mot de passe' type="password" name='password'ref={passwordInputRef}/><br/>
-        
+        <input  placeholder='Entrer votre mot de passe' type="password" name='password'ref={passwordInputRef}/><br/>
+        <div className='error' ref={passwordInputRefError}  style={{ color:"red"}}/>
+
         <input type="checkbox" className='remember' value={checked} onChange={() => setChecked(!checked)}  />
         <label className='text'> Se souvenir de moi</label>
 

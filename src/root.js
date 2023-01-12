@@ -20,14 +20,14 @@ import InscriptionAdmin from './InscriptionAdmin'
 import Role from './role'
 import RoleConnect from './roleConnect'
 import LoginOrg from './loginOrg'
-import ModifEvent from './modifEvent'
 
 
-function All() {
+function All({ setUpate}) {
+	
 	return (
 		<Router>
 
-			<Header />
+			<Header setUpate={setUpate(true)} />
 
 			<Switch>
 
@@ -48,7 +48,7 @@ function All() {
                 </Route>
 
 				<Route path={"/login"}>
-					<Login />
+					<Login setUpate={setUpate(true)} />
 				</Route>
 
 				<Route path={"/loginOrg"}>
@@ -91,9 +91,9 @@ function All() {
                 <Events />
                 </Route>
                 
-				<Route path={"/modifEvent"}>
-                 <ModifEvent />
-				</Route>
+				
+                
+				
 				
 			<Route path={"/inscritEvent"}>
               <InscritEvent />

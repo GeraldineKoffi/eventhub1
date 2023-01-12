@@ -13,6 +13,7 @@ body{
     
 }
 .logo{
+    text-decoration: none;
     position: absolute;
     top: 10px;
     left: 10px;
@@ -20,6 +21,7 @@ body{
     font-family: 'Comforter Brush', cursive;
     font-size: 30px;
     cursor: pointer;
+    color: white;
 }
 .menu{
     position: absolute; 
@@ -209,15 +211,19 @@ input{
 .pass:hover{
     color: #005C96;
 }
+
 .modif{
     position: relative;
-    text-align: center;
-    left: 10px;
     top: 40px;
 }
-.valid{
+.forget{
     position: relative;
     top: 50px;
+}
+
+.valid{
+    position: relative;
+    top: 20px;
     left: 17px;
     width: 150px;
     height: 30px;
@@ -236,7 +242,7 @@ input{
 }
 .newcompte{
     position: relative;
-    top: 35px;
+    
     left: 15px;
     text-decoration: none;
     color: black;
@@ -248,7 +254,7 @@ input{
     color: #005C96;   
 }
 #compte{
-        width: 50%;
+     width: 50%;
      min-width: 90px;
      max-width: 130px;
      margin: 75px auto;
@@ -256,7 +262,6 @@ input{
      border: solid 1px black;
      position: relative;
      transition: 100ms;
-    
      top: -10px;
     
 }
@@ -351,7 +356,7 @@ input{
 .org{
     position: absolute;
     right: 15%;
-    top: 19.7%;
+    top: 21.7%;
     text-align: center;
     align-items: center;
     width: 50%;
@@ -410,7 +415,7 @@ input{
     .org{
         position: absolute;
         right: 15%;
-        top: 19.7%;
+        top: 21.7%;
         text-align: center;
         align-items: center;
         width: 50%;
@@ -461,7 +466,7 @@ input{
     .org{
         position: absolute;
         right: 15%;
-        top: 19.7%;
+        top: 21.7%;
         text-align: center;
         align-items: center;
         width: 50%;
@@ -513,7 +518,7 @@ input{
     .org{
         position: absolute;
         right: 5%;
-        top: 19.7%;
+        top: 21.7%;
         text-align: center;
         align-items: center;
         width: 50%;

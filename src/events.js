@@ -10,23 +10,26 @@ function Events(){
     const dayInputRef=useRef();
     const statutInputRef=useRef();
     const priceInputRef=useRef();
-    const actifInputRef=useRef(); 
-   // const imgInputRef= useRef();
+    const nbreInputRef=useRef(); 
+    const actifInputRef=useRef();
 
     const handleValidation=async(event)=>{
  
         event.preventDefault();
         const title= titreInputRef.current.value; 
         const description= descriptInputRef.current.value; 
-        const date = dayInputRef.current.value;
-        const statut= statutInputRef.current.value;
-        const organisateurId=localStorage.getItem('id');
+        const date = dayInputRef.current.value; 
         const prix=priceInputRef.current.value;
-        const actif=actifInputRef.current.value;
-       // const Img = imgInputRef.current.value;
-       
+        const statut= statutInputRef.current.value;
+        const actif=actifInputRef.current.value
+        if(statut==="gratuit"){
+          prix=0
+        }
+        const organisateurId=localStorage.getItem('id');
+        
+
         try {
-            await axios.post("http://localhost:4000/event",{
+        const Events = await axios.post("http://localhost:4000/event",{
               title,
               description,
               date,
@@ -35,14 +38,24 @@ function Events(){
               actif,
               organisateurId
             })
-           
+      
+            const nbre=nbreInputRef.current.value;
+        for (let i=0; i<=nbre;i++){
+          const event=Events.data.id
+          axios.post("http://localhost:4000/ticket", {
+           event
+        })
+      }
+      setRedirect(true)
            
           } catch (err) {
             console.log("l'erreur est :", err);
           }
-          setRedirect(true)
-          
-        };
+         
+    
+        }
+
+
     
     return(
 
@@ -55,17 +68,15 @@ function Events(){
          <input placeholder='Décrivez votre évènement' required name='description' ref={descriptInputRef}/><br/>
          <label>Date</label><br/> 
          <input type="date" required name='day' ref={dayInputRef}/><br/>
-         <label>Status</label>
+         <label>Statut</label>
          <select className='statut' name='statut' required ref={statutInputRef}>
             <option>Gratuit</option>
             <option>Payant</option>
          </select><br/>
-         <label>Prix Ticket</label><br/>
-         <input placeholder='Prix ticket' required name='prix' ref={priceInputRef} /><br/>
          <label>Nombre de ticket</label><br/>
-        <input placeholder='nombre de ticket' required name='nbreticket'/><br/>
-         <label>Ajouter une image</label><br/>
-        <input type="file" className='file' name='img' /><br/>
+        <input placeholder='nombre de ticket' required name='nbreticket' ref={nbreInputRef}/><br/>
+        <label>Prix du ticket</label><br/>
+        <input placeholder='prix de ticket'  name='prix' ref={priceInputRef}/><br/>
         <label>Evènement actif</label>
         <select className='statut' name='statut' required ref={actifInputRef}>
             <option>Oui</option>

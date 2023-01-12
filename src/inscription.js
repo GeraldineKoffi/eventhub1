@@ -27,6 +27,7 @@ const handleSubmit= async(event)=>{
     const mail= emailInputRef.current.value; 
     const pass= passwordInputRef.current.value;
     const phone= telInputRef.current.value; 
+    const confirm=passwordBixInputRef.current.value;
     
     if(!lastName){
       nameInputRefError.current.innerHTML="Ce champs est requis!"
@@ -46,7 +47,10 @@ const handleSubmit= async(event)=>{
     }
     if(!phone){
       telInputRefError.current.innerHTML="Ce champs est requis!"      
-    }else{
+    }else if(phone.length<10 || phone.length > 10){
+      telInputRefError.current.innerHTML="Resaississez le numéro de téléphone"
+    }
+    else{
       telInputRefError.current.innerHTML=""      
     }
     if(!pass){
@@ -54,10 +58,10 @@ const handleSubmit= async(event)=>{
     }else{
       passwordInputRefError.current.innerHTML=""
     }
-    if(!passwordBixInputRef){
+    if(!confirm){
       passwordBixInputRefError.current.innerHTML="Ce champs est requis!"
     } else
-    if(pass!= passwordBixInputRef){
+    if(pass!= confirm){
       passwordBixInputRefError.current.innerHTML="Le mot de passe est différent du premier"
     }
     else{    
@@ -93,20 +97,20 @@ const handleSubmit= async(event)=>{
             <div className='error' ref={nameInputRefError}  style={{ color:"red"}}/>
             <label>Prénom </label><br/>
            <input  placeholder='Entrer votre prénom ' id="prenom" ref={prenomInputRef}/><br/>
-           <div className='error' ref={prenomInputRefError}  style={{ color:"red", left:"20px",top:"20px"}}/>
+           <div className='error' ref={prenomInputRefError}  style={{ color:"red"}}/>
 
             <label>Email</label><br/>
             <input  placeholder='Entrer un email' type="email" id="email"  ref={emailInputRef}/><br/>
-            <div className='error' ref={emailInputRefError}  style={{ color:"red", left:"20px",top:"20px"}}/>
+            <div className='error' ref={emailInputRefError}  style={{ color:"red"}}/>
             <label>Téléphone</label><br/>
             <input   placeholder='Entrer votre numéro de téléphone' id="telephone" ref={telInputRef}/><br/>
-            <div className='error' ref={telInputRefError}  style={{ color:"red", left:"20px",top:"20px"}}/>
+            <div className='error' ref={telInputRefError}  style={{ color:"red"}}/>
             <label>Mot de passe</label><br/>
             <input  placeholder='Entrer un mot de passe'  id="password" type="password" ref={passwordInputRef}/><br/>
-            <div className='error' ref={passwordInputRefError}  style={{ color:"red", left:"20px",top:"20px"}}/>
+            <div className='error' ref={passwordInputRefError}  style={{ color:"red"}}/>
             <label>Confirmer le mot de passe</label><br/>
             <input  placeholder='Confirmer le mot de passe'  id="passwordBix" type="password" ref={passwordBixInputRef}/><br/>
-            <div className='error' ref={passwordBixInputRefError}  style={{ color:"red", left:"20px",top:"20px"}}/>
+            <div className='error' ref={passwordBixInputRefError}  style={{ color:"red"}}/>
 
            <button className='valid'>S'inscrire</button>
             {redirect? <Redirect to="/login" />: null}

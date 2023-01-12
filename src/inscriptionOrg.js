@@ -33,6 +33,7 @@ const handleSubmit= async(event)=>{
     const adresse= adressInputRef.current.value; 
     const gerant= gerantInputRef.current.value;
     const num_RCS= numRcsInputRef.current.value;
+    const confirm=passwordBixInputRef.current.value;
 
 
     if(!name){
@@ -50,15 +51,22 @@ const handleSubmit= async(event)=>{
     }else{
       gerantInputRefError.current.innerHTML=""
     }
-
     if(!mail){
       emailInputRefError.current.innerHTML="Ce champs est requis!"
     }else{
       emailInputRefError.current.innerHTML=""
     }
+    if(!num_RCS){
+      numRcsInputRefError.current.innerHTML="Ce champs est requis!"
+    }else{
+      numRcsInputRefError.current.innerHTML=""
+    }
     if(!tel){
       telInputRefError.current.innerHTML="Ce champs est requis!"
-    }else{
+    }else if(tel.length<10 || tel.length > 10){
+      telInputRefError.current.innerHTML="Resaississez le numéro de téléphone"
+    }
+    else{
       telInputRefError.current.innerHTML=""
     }
     if(!pass){
@@ -66,10 +74,10 @@ const handleSubmit= async(event)=>{
     }else{
       passwordInputRefError.current.innerHTML=""
     }
-    if(!passwordBixInputRef){
+    if(!confirm){
       passwordBixInputRefError.current.innerHTML="Ce champs est requis!"
     }else
-    if(pass!= passwordBixInputRef){
+    if(pass != confirm){
       passwordBixInputRefError.current.innerHTML="Le mot de passe est différent du premier"
     }else{
       passwordBixInputRefError.current.innerHTML=""
@@ -105,7 +113,7 @@ const handleSubmit= async(event)=>{
             <div className='error' ref={emailInputRefError}  style={{ color:"red"}}/>
 
             <label>Téléphone</label><br/>
-            <input   placeholder='Entrer votre numéro de téléphone' id="telephone" ref={telInputRef}/><br/>
+            <input  placeholder='Entrer votre numéro de téléphone' id="telephone" ref={telInputRef}/><br/>
             <div className='error' ref={telInputRefError}  style={{ color:"red"}}/>
 
             <label>Adresse</label><br/>
@@ -128,7 +136,7 @@ const handleSubmit= async(event)=>{
             <input  placeholder='Confirmer le mot de passe'  id="passwordBix" type="password" ref={passwordBixInputRef}/><br/>
             <div className='error' ref={passwordBixInputRefError}  style={{ color:"red"}}/>
            <button className='valid'>S'inscrire</button>
-            {redirect? <Redirect to="/loginOrg" />: null}
+            {redirect? <Redirect to={"/loginOrg"} />: null}
            
 
         </form>

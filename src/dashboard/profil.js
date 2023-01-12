@@ -4,7 +4,7 @@ import utilisateur1 from './utilisateur1.png'
 
 
 function Profil(){   
-   console.log("update prof");
+  
    const idInputRef=useRef();
    const nameInputRef=useRef();
    const prenomInputRef=useRef();
@@ -24,7 +24,7 @@ function Profil(){
       try{
          axios.patch(`http://localhost:4000/user/`+ id, {lastName, firstName, phone})
          .then((response)=>{
-            console.log(response)
+         
                localStorage.setItem('lastName', response.data.lastName)
                localStorage.setItem('firstName', response.data.firstName)
                localStorage.setItem('phone', response.data.phone)

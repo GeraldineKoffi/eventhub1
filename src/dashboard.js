@@ -14,17 +14,11 @@ function dashboard(){
         localStorage.removeItem("mail")
         localStorage.removeItem("id")
 
-
-
-
-
-
     }
 
     return(
         <div className="dashboard">
              <Link to={'./'}><button className="deconnect" onClick={logout}>Déconnexion</button></Link> 
-         <Link to={'./eventList'}><button className="event">Consulter les évènements à venir</button></Link> 
            <Profil/>
            <Interest/>
         </div>
