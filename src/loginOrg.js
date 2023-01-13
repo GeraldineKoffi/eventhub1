@@ -53,7 +53,7 @@ function LoginOrg(){
            )
          
         }catch(error){
-          console.log("error try:", error)
+          alert(error.response.data.message)
         }
         
     }

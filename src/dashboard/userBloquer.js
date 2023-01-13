@@ -5,21 +5,15 @@ import Axios from 'axios';
 
 function UserBloquer() {
 const [data, setDate] = useState([])
-
-  
-
+const [update,setUpdate]=useState(false)
+   
 
  const change= async(id,index)=>{
-     useEffect(()=>{
+     
     Axios.delete("http://localhost:4000/user/"+id)
-    .then(
-        res=>{
-            data[index]=res.data
-                setDate(data)
-                
-            }
-            )
-        },[] )
+        .then(
+            setUpdate(!update)
+        )
  }
 
 useEffect(() => {
@@ -28,16 +22,17 @@ useEffect(() => {
             setDate(res.data)
         }
         ).catch(err => console.log(err))
-},[] 
+},[update] 
 ); 
 
 const arr = data
 .map((data, index) => {
+    var Id=data.id
     return(
-        <tr key={index}>
+        <tr key={index} >
             <td>{data.id}</td>
         <td>{data.lastName}</td><td> {data.firstName}</td><td> {data.phone}</td><td> {data.mail}</td><td>{data.actif}</td><td>
-        <button onClick={()=>change(data.id,index)} >Editer l'utilisateur</button>
+        <button onClick={()=>change(Id,index)} >Editer l'utilisateur</button>
         </td>
         </tr>
     )
@@ -45,9 +40,8 @@ const arr = data
 return(
     <div className='userBloquer'>
         <h2>Liste des utilisateurs</h2>
-                <table border={1}>
+                <table border={1} width="100%">
 <tr><td>Id</td><td>Lastname</td><td>Firstname</td><td>Telephone</td><td>Mail</td><td>Statut</td><td>Edit</td></tr>
-
         {arr}
         </table>
 

@@ -35,7 +35,6 @@ function Login({update, setUpdate}){
             Pass
           })
           .then(response=>{
-            
             { checked ? localStorage.setItem('remember', true) : localStorage.setItem('remember', false) }
 
             localStorage.setItem('access_token', response.data.access_token)
@@ -53,10 +52,11 @@ function Login({update, setUpdate}){
           }) 
          
         }catch(error){
-          console.log("error try:", error)
+         alert(error.response.data.message)
         }
         
       }
+     
     
     return (
         <form className='login' onSubmit={handleValidation} >

@@ -10,6 +10,16 @@ import OrgBloquer from './dashboard/orgBloquer'
 
 function dashboardAd(){
     const [data, setDate] = useState([])
+    const [update,setUpdate]=useState(false)
+   
+
+ const change= async(id,index)=>{
+     
+    Axios.delete("http://localhost:4000/event/"+id)
+        .then(
+            setUpdate(!update)
+        )
+ }
     
     useEffect(() => {
         Axios.get("http://localhost:4000/event")
@@ -18,15 +28,16 @@ function dashboardAd(){
                 console.log(res.data);
             }
             ).catch(err => console.log(err))
-    },[] 
+    },[update] 
     );   
      const arr = data
    
   
 .map((data, index) => {
+    var Id=data.id
     return(
     <tr key={index}>
-    <td>{data.title}</td><td> {data.description}</td><td> {data.date}</td><td> {data.prix}</td><td>{data.actif}</td> <td><button >Desactiver l'évènement</button></td>    
+    <td>{data.title}</td><td> {data.description}</td><td> {data.date}</td><td> {data.prix}</td><td>{data.actif.toString()}</td> <td><button onClick={()=>change(Id,index)} >Desactiver l'évènement</button></td>    
 
     </tr>
     )
@@ -42,7 +53,7 @@ function dashboardAd(){
            <br/>
            
            <UserBloquer/><br/>
-           <h3>Liste des organisateurs</h3>
+           
            <OrgBloquer/>
 
            

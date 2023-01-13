@@ -175,9 +175,21 @@ h1{
 
 .userBloquer {
    position: absolute;
+   top: 45%;
+   left: 30%;
 
 }
+.orgBloquer {
+    position: absolute;
+    top: 160%;
+    left: 30%
+ }
+ 
+ .tableEvent{
+    width: 60%;
+ }
 
+ 
 /*modification evenements*/
 .modifEvent{
     width: 40%;
