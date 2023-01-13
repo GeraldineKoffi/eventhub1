@@ -10,12 +10,15 @@ function ModifEvent() {
    const dateInputRef=useRef();
    const PriceInputRef=useRef();
    const statutInputRef=useRef();
-
+    const [data, setDate]=useState();
    const [update,setUpdate]=useState(false)
    let { event } = useParams();
 
    useEffect(()=>{
-  
+   axios.get("http://localhost:4000/event"+ event)
+   .then((res)=>{
+      setDate(res)
+   })
    },[update])
    
    const setUpdateOrg = async()=>{
@@ -28,6 +31,7 @@ function ModifEvent() {
       try{
          axios.patch(`http://localhost:4000/event`+ event,{title,description,date,prix,statut}
          .then((response)=>{
+          console.log(data.title)
             setUpdate(!update)
          }))
       }
