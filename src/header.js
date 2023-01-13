@@ -1,11 +1,13 @@
 import {useEffect} from 'react'
 import React from "react";
-import {Link} from 'react-router-dom'
+import {Link,Redirect} from 'react-router-dom'
 import menu from './mesImages/menu.png'
+
 
 
 function Header( { update, setUpdate } ){
     const [show, setShow] = React.useState(false)
+   
     
     useEffect(()=>{
 
@@ -27,19 +29,19 @@ function Header( { update, setUpdate } ){
              <div className="header">
          <Link to={'./'}><div className="logo"> E-venT Hub</div></Link>  
         <div className="menu" onClick={Menu}><img src={menu} alt="menu" width="55px" /></div>
-        {!localStorage.getItem('id') ?
+        
+        {
+        !localStorage.getItem('id') ?
         <div className="menuAll"> 
             <Link to={'./Role'}><button id="link">Inscription</button></Link><br/>
             <Link to={'/roleConnect'}><button id="link" >Connexion</button></Link><br/>
             <Link to={'./eventList'}><button id="link">Evènements</button></Link> 
         </div>:
           <div className="menuAll">
-            
-          <Link to={'./Role'}><button id="link">Inscription</button></Link><br/>
+              {localStorage.getItem('role')=="organisateur"?<Link to={'./dashboardOrg'}><button id="link" >Dashboard</button></Link>:<Link to={'./dashboard'}><button id="link" >Dashboard</button></Link>}
           <Link to={'/'}><button id="link" onClick={logout} >Déconnexion</button></Link><br/>
           <Link to={'./eventList'}><button id="link">Evènements</button></Link> 
       </div>}
-
       {show? <div className="menuAl">
                 
     <Link to={'./Role'}><button id="link">Inscription</button></Link><br/>

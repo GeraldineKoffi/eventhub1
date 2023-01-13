@@ -24,7 +24,9 @@ function Events(){
         const actif=actifInputRef.current.value
       
         const organisateurId=localStorage.getItem('id');
-        
+        if(statut=="Gratuit"){
+          prix=0
+        }
 
         try {
         const Events = await axios.post("http://localhost:4000/event",{

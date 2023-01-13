@@ -105,8 +105,8 @@ h1{
  top: -60px;
 }
 .profilOrg .modifProfil{
-    position: relative;
-    top: -100px;
+    position: absolute;
+    top: 460px;
     left: 10px;
 }
 .profilOrg input{
@@ -172,36 +172,23 @@ h1{
     position: relative;
     top: 30px;
 }
-.dashboardAd .listEvent{
-    position: relative;
-   
+
+.userBloquer {
+   position: absolute;
+
 }
-.useBloquer .list{
-    width: 40%;
-    height: 80px;
-    border: 1px SOLID #005C96;
-    border-radius: 5px;
-    position: relative;
-    top: -500px;
-    left: -20px;
-    margin: 0 auto;
-    margin-bottom: 25px;
-}
-.useBloquer H1{
-    position: relative;
-    top: 30px;
-}
+
 /*modification evenements*/
 .modifEvent{
     width: 40%;
-    height: 600px;
+    height: 650px;
     box-shadow: 0 10px 10px  rgb(138, 161, 182);
-    margin: 0 auto;
+    margin: 20px auto;
     background: #005C96;
     padding-left: 40px;
 }
-.modifEvent h2{
-    padding-top: 40px;
+.modifEvent h3{
+    padding-top: 30px;
 }
 .modifProfil input{
     width: 250px;
@@ -210,6 +197,8 @@ h1{
 .modifEvent .valid{
     color: black;
     border: 1px solid black;
+    position: relative;
+    top: -10px;
 }
 
 .dashboardAd .listEvent{
@@ -229,4 +218,22 @@ h1{
     text-align: center;
     width: 90%;
     font-size: 20px;
+}
+/*list participant*/
+.listPart{
+    background: #005C96;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 10px;
+    width: 50%;
+    height: 40px;
+    position: relative;
+    left: 20px;
+    color: white;
+}
+.list {
+    position: relative;
+    text-align: center;
+    left: 20px;
+    
 }

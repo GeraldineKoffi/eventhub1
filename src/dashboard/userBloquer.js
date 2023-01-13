@@ -44,7 +44,8 @@ const arr = data
 })
 return(
     <div className='userBloquer'>
-                <table border={1} className="tableUser">
+        <h2>Liste des utilisateurs</h2>
+                <table border={1}>
 <tr><td>Id</td><td>Lastname</td><td>Firstname</td><td>Telephone</td><td>Mail</td><td>Statut</td><td>Edit</td></tr>
 
         {arr}

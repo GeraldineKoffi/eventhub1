@@ -40,8 +40,9 @@ function dashboardAd(){
            {arr}
            </table>
            <br/>
+           
            <UserBloquer/><br/>
-           <h3></h3>
+           <h3>Liste des organisateurs</h3>
            <OrgBloquer/>
 
            

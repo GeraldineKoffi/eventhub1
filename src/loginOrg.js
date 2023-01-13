@@ -46,6 +46,8 @@ function LoginOrg(){
             localStorage.setItem('id', response.data.organisateur.id)
             localStorage.setItem('gerant', response.data.organisateur.gerant)
             localStorage.setItem('num_RCS', response.data.organisateur.num_RCS)
+            localStorage.setItem('role', "organisateur")
+
             setRedirect(true)
           }
            )

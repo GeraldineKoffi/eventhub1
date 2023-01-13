@@ -45,6 +45,7 @@ function Login({update, setUpdate}){
             localStorage.setItem('mail', response.data.user.mail)
             localStorage.setItem('phone', response.data.user.phone)
             localStorage.setItem('id', response.data.user.id)
+            localStorage.setItem('role', "user")
             setUpdate(!update)
             setRedirect(true)
             
