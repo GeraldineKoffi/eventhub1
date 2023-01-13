@@ -35,7 +35,7 @@ function dashboardAd(){
         <div className="dashboardAd">
            <ProfilAD/>
            <h1>Liste des évènements</h1>
-           <table>
+           <table border={1} className="tableEvent">
             <tr><td>Title</td><td>Description</td><td>Date</td><td>Price</td><td>Actif</td><td>Edit</td></tr>
            {arr}
            </table>

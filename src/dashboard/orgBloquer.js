@@ -24,7 +24,7 @@ const arr = data
 })
 return(
     <div className='orgBloquer'>
-                <table>
+                <table border={1} className="tableOrg">
             <tr><td>Name</td><td>Adress</td><td>Mail</td><td>Gerant</td><td>Telephone</td><td>Num Rcs</td><td>Statut</td><td>Edit</td></tr>
         {arr}
         </table>
