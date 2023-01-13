@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
@@ -28,7 +28,7 @@ function Inscription() {
     const pass = passwordInputRef.current.value;
     const phone = telInputRef.current.value;
     const confirm = passwordBixInputRef.current.value;
-    if (!lastName || !firstName || !mail || !phone || !pass || !confirm || pass != confirm || phone.length < 10 || phone.length > 10) {
+    if (!lastName || !firstName || !mail || !phone || !pass || !confirm || pass !== confirm || phone.length < 10 || phone.length > 10) {
 
       if (!lastName) {
         nameInputRefError.current.innerHTML = "Ce champs est requis!"
@@ -62,7 +62,7 @@ function Inscription() {
       if (!confirm) {
         passwordBixInputRefError.current.innerHTML = "Ce champs est requis!"
       } else
-        if (pass != confirm) {
+        if (pass !== confirm) {
           passwordBixInputRefError.current.innerHTML = "Le mot de passe est différent du premier"
         }
         else {

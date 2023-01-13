@@ -28,7 +28,7 @@ function InscriptionAdmin() {
     const telephone = telInputRef.current.value;
     const confirm=passwordBixInputRef.current.value
 
-    if (!lastName || !firstName || !mail || !telephone || !pass || !confirm|| pass != confirm || telephone.length < 10 || telephone.length > 10) {
+    if (!lastName || !firstName || !mail || !telephone || !pass || !confirm|| pass !== confirm || telephone.length < 10 || telephone.length > 10) {
 
       if (!lastName) {
         nameInputRefError.current.innerHTML = "Ce champs est requis!"
@@ -59,7 +59,7 @@ function InscriptionAdmin() {
       if (!confirm) {
         passwordBixInputRefError.current.innerHTML = "Ce champs est requis!"
       } else
-        if (pass != confirm) {
+        if (pass !== confirm) {
           passwordBixInputRefError.current.innerHTML = "Le mot de passe est différent du premier"
         } else {
           passwordBixInputRefError.current.innerHTML = ""

@@ -23,17 +23,34 @@ function Profil(){
      
       try{
          axios.patch(`http://localhost:4000/user/`+ id, {lastName, firstName, phone})
-         .then((response)=>{
-         
+        
+           .then((response)=>{
+            if(lastName && firstName && phone){
                localStorage.setItem('lastName', response.data.lastName)
                localStorage.setItem('firstName', response.data.firstName)
                localStorage.setItem('phone', response.data.phone)
                localStorage.setItem('id', response.data.id)
                setShow3(!show3)
                setUpdate(!update)
-               
-            })
-           
+         }
+         else if(!lastName && !firstName && !phone){
+            setShow3(!show3)
+            setUpdate(!update)
+         }
+         else if(lastName && !firstName && !phone){
+            localStorage.setItem('lastName',response.data.lastName)
+            setShow3(!show3)
+            setUpdate(!update)
+         }else if(!lastName && firstName && !phone){
+            localStorage.setItem('firstName',response.data.firstName)
+            setShow3(!show3)
+            setUpdate(!update)
+         }else if(!lastName && !firstName && phone){
+            localStorage.setItem('phone',response.data.phone)
+            setShow3(!show3)
+            setUpdate(!update)
+         }
+           }) 
    
    }
    catch (err) {

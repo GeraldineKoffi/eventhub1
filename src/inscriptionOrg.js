@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, {useRef } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 
@@ -35,7 +35,7 @@ function InscriptionOrg() {
     const num_RCS = numRcsInputRef.current.value;
     const confirm = passwordBixInputRef.current.value;
 
-    if (!name || !adresse || !gerant || !mail || !num_RCS || !tel || tel.length < 10 || tel.length > 10 || !pass || !confirm || pass != confirm) {
+    if (!name || !adresse || !gerant || !mail || !num_RCS || !tel || tel.length < 10 || tel.length > 10 || !pass || !confirm || pass !== confirm) {
 
       if (!name) {
         nameInputRefError.current.innerHTML = "Ce champs est requis!"
@@ -78,7 +78,7 @@ function InscriptionOrg() {
       if (!confirm) {
         passwordBixInputRefError.current.innerHTML = "Ce champs est requis!"
       } else
-        if (pass != confirm) {
+        if (pass !== confirm) {
           passwordBixInputRefError.current.innerHTML = "Le mot de passe est différent du premier"
         } else {
           passwordBixInputRefError.current.innerHTML = ""

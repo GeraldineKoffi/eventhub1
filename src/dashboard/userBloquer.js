@@ -30,7 +30,7 @@ useEffect(() => {
         ).catch(err => console.log(err))
 },[] 
 ); 
-const user=data
+
 const arr = data
 .map((data, index) => {
     return(

@@ -26,18 +26,6 @@ h1{
     background: white;
     color: #005C96;
 }
-.event2{
-    width: 25%;
-    border: 1px solid #005C96;
-    border-radius: 5px;
-    position: absolute;
-    right: 20px;
-    height: 30px;
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    top: 50px;
-}
 .imgProfil{
     width: 200px;
     height: 190px;
@@ -94,10 +82,6 @@ h1{
     top: -110px;
     left: 10px;
 }
-.infoModif{
-    position: absolute;
-    
-}
 .modifProfil .valid{
     position: relative;
     top: 20px;
@@ -136,20 +120,20 @@ h1{
 }
 /*liste des evenements*/
 .listEvent{
-    width: 50%;
-    height: 80px;
+    width: 60%;
+    height: 100px;
     border: 1px SOLID #005C96;
     border-radius: 5px;
     position: relative;
-    top: -500px;
-    left: -30px;
+    top: -450px;
+    left: 90px;
     margin: 0 auto;
     margin-bottom: 25px;
 }
 .listEvent h5{
     position: relative;
     font-size: 15px;
-    top: 5px;
+    top: -10px;
     left: 10px;
 }
 .event1{
@@ -163,6 +147,25 @@ h1{
     font-weight: bold;
     border-radius: 5px;
     
+}
+.event1:hover{
+    background: white;
+    color: #005C96;
+}
+.event2{
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    color: white;
+    background: #005C96;
+    border: none;
+    height: 30px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.event2:hover{
+    background: white;
+    color: #005C96;
 }
 .dashboardAd
 {

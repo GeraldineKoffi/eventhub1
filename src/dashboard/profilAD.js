@@ -1,4 +1,3 @@
-import ProfilOrg from './profilOrg';
 import utilisateur1 from './utilisateur1.png'
 import axios from 'axios'
 import React, {useEffect, useState,useRef} from 'react'
@@ -19,20 +18,36 @@ const emailInputRef=useRef();
     const lastName= nameInputRef.current.value;
     const firstName= prenomInputRef.current.value;
     const telephone=telInputRef.current.value;
-    const mail=emailInputRef.current.value;
     const id = idInputRef.current.value;
    
     try{
-       axios.patch(`http://localhost:4000/admin/`+ id,{lastName,firstName,telephone,mail})
+       axios.patch(`http://localhost:4000/admin/`+ id,{lastName,firstName,telephone})
        .then((response)=>{
-          console.log(response)
+          if(lastName && firstName && telephone ){
              localStorage.setItem('lastName', response.data.lastName)
              localStorage.setItem('firstName', response.data.firstName)
              localStorage.setItem('telephone', response.data.telephone)
              localStorage.setItem('id', response.data.id)
              setShow3(!show3)
              setUpdate(!update)
-             
+          }
+             else if(!lastName && !firstName && !telephone){
+               setShow3(!show3)
+               setUpdate(!update)
+            }
+            else if(lastName && !firstName && !telephone){
+               localStorage.setItem('lastName',response.data.lastName)
+               setShow3(!show3)
+               setUpdate(!update)
+            }else if(!lastName && firstName && !telephone){
+               localStorage.setItem('firstName',response.data.firstName)
+               setShow3(!show3)
+               setUpdate(!update)
+            }else if(!lastName && !firstName && telephone){
+               localStorage.setItem('telephone',response.data.telephone)
+               setShow3(!show3)
+               setUpdate(!update)
+            }
           })
            }
  catch (err) {

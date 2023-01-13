@@ -1,5 +1,5 @@
 import React from 'react'
-import { useEffect, useState, reverse } from 'react';
+import { useEffect, useState} from 'react';
 import Axios from 'axios';
 import rech from './mesImages/rech.jpg'
 import axios from 'axios'
@@ -27,7 +27,7 @@ function EventList() {
         const userLastName = localStorage.getItem('lastName')
         const idUser = Axios.get("http://localhost:4000/user/" + user)
 
-        if ((await idUser).data.lastName == userLastName){
+        if ((await idUser).data.lastName === userLastName){
 
             axios.post("http://localhost:4000/ticket/buy", {
                 event,

@@ -22,110 +22,112 @@ import InscriptionAdmin from './InscriptionAdmin'
 import Role from './role'
 import RoleConnect from './roleConnect'
 import LoginOrg from './loginOrg'
-import {useEffect} from 'react'
+import { useEffect } from 'react'
+import ListPart from './listPart'
 
 
 function All() {
-	const [update, setUpdate]=React.useState(false)
-	
-    useEffect(()=>{
+    const [update, setUpdate] = React.useState(false)
 
-    },[update])
-	return (
-		<Router>
+    useEffect(() => {
 
-			<Header setUpdate={setUpdate} />
+    }, [update])
+    return (
+        <Router>
 
-			<Switch>
+            <Header setUpdate={setUpdate} />
 
-				<Route exact path={"/"}>
-					<Home />
-				</Route>
+            <Switch>
 
-				<Route path={"/inscription"}>
-	           <Inscription />
+                <Route exact path={"/"}>
+                    <Home />
                 </Route>
 
-				<Route path={"/inscriptionOrg"}>
-                <InscriptionOrg />
+                <Route path={"/inscription"}>
+                    <Inscription />
                 </Route>
 
-				<Route path={"/inscriptionAdmin"}>
-                  <InscriptionAdmin />
+                <Route path={"/inscriptionOrg"}>
+                    <InscriptionOrg />
                 </Route>
 
-				<Route path={"/login"}>
-					<Login update={update} setUpdate={setUpdate} />
-				</Route>
-
-				<Route path={"/loginOrg"}>
-                 <LoginOrg />
+                <Route path={"/inscriptionAdmin"}>
+                    <InscriptionAdmin />
                 </Route>
 
-            	<Route path={"/loginAdmin"}>
-                <LoginAdmin />
-                </Route>
-                
-				<Route path={"/forgetPass"}>
-                 <ForgetPass />
-                </Route>
-				<Route path={"/forgetPassOrg"}>
-                 <ForgetPassOrg />
-                </Route>
-				<Route path={"/forgetPassAd"}>
-                 <ForgetPassAd />
+                <Route path={"/login"}>
+                    <Login update={update} setUpdate={setUpdate} />
                 </Route>
 
-				<Route path={"/role"}>
-                  <Role />
+                <Route path={"/loginOrg"}>
+                    <LoginOrg />
+                </Route>
+
+                <Route path={"/loginAdmin"}>
+                    <LoginAdmin />
+                </Route>
+
+                <Route path={"/forgetPass"}>
+                    <ForgetPass />
+                </Route>
+                <Route path={"/forgetPassOrg"}>
+                    <ForgetPassOrg />
+                </Route>
+                <Route path={"/forgetPassAd"}>
+                    <ForgetPassAd />
+                </Route>
+
+                <Route path={"/role"}>
+                    <Role />
                 </Route>
 
                 <Route path={"/roleConnect"}>
-                 <RoleConnect />
+                    <RoleConnect />
                 </Route>
 
-				<Route path={"/dashboard"}>
-                   <Dashboard />
+                <Route path={"/dashboard"}>
+                    <Dashboard />
                 </Route>
 
                 <Route path={"/dashboardOrg"}>
-                <DashboardOrg />
+                    <DashboardOrg />
                 </Route>
 
                 <Route path={"/dashboardAd"}>
-                   <DashboardAd />
-                </Route>		
-
-				<Route path={"/eventList"}>
-                   <EventList />
-				</Route>
-
-				<Route path={"/events"}>
-                <Events />
+                    <DashboardAd />
                 </Route>
-                
-				
-                
-				
-				
-			<Route path={"/modifEvent"}>
-              <ModifEvent />
-            </Route>
-             
-			</Switch>
 
-			<Footer />
-			
-		</Router> 
-	)
+                <Route path={"/eventList"}>
+                    <EventList />
+                </Route>
+
+                <Route path={"/events"}>
+                    <Events />
+                </Route>
+
+
+                <Route path={"/modifEvent/:event"}>
+                    <ModifEvent />
+                </Route>
+                <Route path={"/listPart/:event"}>
+                    <ListPart />
+                </Route>
+
+
+            </Switch>
+
+            <Footer />
+
+        </Router>
+    )
 }
 
 function Root() {
-	return (
-		<div className='EventHub'>
-			<All/>
-		</div>
-	)
+    return (
+        <div className='EventHub'>
+            <All />
+        </div>
+    )
 }
 
 export default Root
