@@ -125,7 +125,7 @@ h1{
     border: 1px SOLID #005C96;
     border-radius: 5px;
     position: relative;
-    top: -450px;
+    top: -400px;
     left: 90px;
     margin: 0 auto;
     margin-bottom: 25px;
@@ -188,7 +188,9 @@ h1{
  .tableEvent{
     width: 60%;
  }
-
+ .orgBloquer .tableOrg{
+    width: 100%;
+ }
  
 /*modification evenements*/
 .modifEvent{

@@ -52,8 +52,11 @@ function Login({update, setUpdate}){
           }) 
          
         }catch(error){
-         alert(error.response.data.message)
-        }
+          if(error.response){
+            alert(error.response.data.message)
+            }
+            else alert("Mot de passe incorrect")
+          }
         
       }
      

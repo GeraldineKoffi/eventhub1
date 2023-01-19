@@ -29,7 +29,7 @@ const arr = data
     var Id=data.id
     return(
         <tr key={index}>
-        <td>{data.name}</td><td> {data.adresse} </td><td>{data.mail}</td><td> {data.gerant}</td><td>{data.tel}</td><td> {data.num_RCS}</td><td> {data.actif}</td><td><button onClick={()=>change(Id,index)} >Editer l'organisateur</button></td>
+        <td>{data.name}</td><td> {data.adresse} </td><td>{data.mail}</td><td> {data.gerant}</td><td>{data.tel}</td><td> {data.num_RCS}</td><td> {data.actif}</td><td><button onClick={()=>change(Id,index)} className='Editer' >Editer l'organisateur</button></td>
         </tr>
     )
 })

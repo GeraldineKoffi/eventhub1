@@ -1,20 +1,17 @@
 import {useEffect} from 'react'
 import React from "react";
-import {Link,Redirect} from 'react-router-dom'
-import menu from './mesImages/menu.png'
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 
 
 function Header( { update, setUpdate } ){
-    const [show, setShow] = React.useState(false)
-   
     
     useEffect(()=>{
 
      },[update])
-     function Menu(){
-        setShow(!show)
-     }
     
      function logout(){
         localStorage.removeItem("access_token")
@@ -26,30 +23,34 @@ function Header( { update, setUpdate } ){
         setUpdate(true)
     }
     return(
-             <div className="header">
-         <Link to={'./'}><div className="logo"> E-venT Hub</div></Link>  
-        <div className="menu" onClick={Menu}><img src={menu} alt="menu" width="55px" /></div>
-        
-        {
-        !localStorage.getItem('id') ?
-        <div className="menuAll"> 
-            <Link to={'./Role'}><button id="link">Inscription</button></Link><br/>
-            <Link to={'/roleConnect'}><button id="link" >Connexion</button></Link><br/>
-            <Link to={'./eventList'}><button id="link">Evènements</button></Link> 
-        </div>:
-          <div className="menuAll">
-              {localStorage.getItem('role')=="organisateur"?<Link to={'./dashboardOrg'}><button id="link" >Dashboard</button></Link>:<Link to={'./dashboard'}><button id="link" >Dashboard</button></Link>}
-          <Link to={'/'}><button id="link" onClick={logout} >Déconnexion</button></Link><br/>
-          <Link to={'./eventList'}><button id="link">Evènements</button></Link> 
-      </div>}
-      {show? <div className="menuAl">
-                
-    <Link to={'./Role'}><button id="link">Inscription</button></Link><br/>
-     <Link to={'/roleConnect'}><button id="link" >Connexion</button></Link><br/>
-     <Link to={'./eventList'}><button id="link">Evènements</button></Link> 
- </div>:null}
-        
-        </div>
+      <div className="Navbar">
+      {['md'].map((expand) => (
+        <Navbar key={expand} bg="dark" variant='dark' expand={expand} className="mb-3">
+          <Container fluid >
+            <Navbar.Brand href="/">Eventhub</Navbar.Brand>
+            
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}/>
+            <Navbar.Offcanvas
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              placement="end"
+            >
+              <Offcanvas.Header closeButton>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Nav.Link href="/">Acceuil</Nav.Link>
+                  <Nav.Link href="#event">Evènements</Nav.Link>
+                  <Nav.Link href="#contact">Contacts</Nav.Link>
+                </Nav>
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      ))}
+
+      </div>
+  
     )
 }
 export default Header;

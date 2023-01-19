@@ -35,7 +35,12 @@ function EventList() {
             }).then(res => {
                 alert(res.data);
             })
-        }
+        .catch(error=>{
+              alert(error.response.data.message)
+              
+            })
+          }
+
     }
 
    const handleSearch=(e)=>{
