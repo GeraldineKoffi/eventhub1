@@ -5,13 +5,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-function ForgetPassAd(){
+function ForgetPassAS(){
     const [validated, setValidated] = useState(false);
     const [redirect, setRedirect] = useState(false)
     const newPassInputRef=useRef();
     const emailInputRef=useRef();
    
-    const setUpdate = (event)=>{
+    const setUpdate = async(event)=>{
         const pass=newPassInputRef.current.value;
         const mail=emailInputRef.current.value;
         const form = event.currentTarget;
@@ -20,7 +20,7 @@ function ForgetPassAd(){
         } 
         setValidated(true);
         try{
-        axios.post("http://localhost:4000/admin/change",{mail,pass})
+        await axios.post("http://localhost:4000/SuperAdmin/change",{mail,pass})
           
         setRedirect(true)
         }
@@ -31,7 +31,7 @@ function ForgetPassAd(){
   }
     
     return(
-        <Form noValidate validated={validated} onSubmit={setUpdate} className="login rounded p-4 p-sm-3">
+        <Form noValidate validated={validated} onSubmit={setUpdate} className="forget rounded p-4 p-sm-3">
         <Form.Label className="head">Modification de mot de passe</Form.Label>
          <Form.Group className="mb-3">
            <Form.Label>Email</Form.Label>
@@ -55,9 +55,9 @@ function ForgetPassAd(){
            />
            <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
          </Form.Group>
-         <Button type="submit"  className="btn btn-primary w-100 mt-2">Changer</Button>
-        {redirect? <Redirect to="/loginAdmin" />: null}
+         <Button type="submit" variant="dark" className="w-100 mt-2">Changer</Button>
+        {redirect? <Redirect to="/loginAS" />: null}
     </Form>
     )
 }
-export default ForgetPassAd
+export default ForgetPassAS

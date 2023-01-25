@@ -14,6 +14,7 @@ import Events from './events'
 import ForgetPass from './forgetPass'
 import ForgetPassOrg from './forgetPassOrg'
 import ForgetPassAd from './forgetPassAd'
+import ForgetPassAS from './forgetPassAS'
 import Dashboard from './dashboard'
 import DashboardAd from './dashboardAd'
 import DashboardOrg from './dashboardOrg'
@@ -78,10 +79,12 @@ function App(){
                 <Route path={"/forgetPassOrg"}>
                     <ForgetPassOrg />
                 </Route>
+                <Route path={"/forgetPassAS"}>
+                    <ForgetPassAS />
+                </Route>
                 <Route path={"/forgetPassAd"}>
                     <ForgetPassAd />
                 </Route>
-
                 <Route path={"/role"}>
                     <Role />
                 </Route>

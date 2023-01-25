@@ -1,17 +1,27 @@
 import React, {useState, useRef} from "react";
 import {Redirect} from 'react-router-dom'
 import axios from 'axios'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 function ForgetPass(){
+    const [validated, setValidated] = useState(false);
     const [redirect, setRedirect] = useState(false)
     const newPassInputRef=useRef();
     const emailInputRef=useRef();
    
-    const setUpdate = ()=>{
+    const setUpdate =async(event)=>{
+      event.preventDefault();
         const pass=newPassInputRef.current.value;
         const mail=emailInputRef.current.value;
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) { 
+          event.stopPropagation();
+        } 
+        setValidated(true);
         try{
-        axios.post("http://localhost:4000/user/change",{mail,pass})
+       await axios.post("http://localhost:4000/user/change",{mail,pass})
           
         setRedirect(true)
         }
@@ -22,17 +32,33 @@ function ForgetPass(){
   }
     
     return(
-    <form className="login" onSubmit={setUpdate}>
-        <h3 className="modif">Mot de passe oublié</h3>
-        <div className="forget">
-        <label>Email</label><br/>
-        <input placeholder="Entrer un email" name="email" ref={emailInputRef} type="email"/><br/>
-        <label>Nouveau mot de passe:</label><br/>
-        <input placeholder="Entrer le nouveau mot de passe" type="password" name="confirm" ref={newPassInputRef}/><br/>
-        <button className="valid">Changer</button>
-        </div>
+        <Form noValidate validated={validated} className="forget rounded p-4 p-sm-3">
+        <Form.Label className="head">Modification de mot de passe</Form.Label>
+         <Form.Group className="mb-3">
+           <Form.Label>Email</Form.Label>
+           <Form.Control
+             required
+             type="email"
+             placeholder="Entrez votre email"
+             name="email"
+             ref={emailInputRef}
+           />
+           <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+         </Form.Group>
+         <Form.Group className="mb-3">
+           <Form.Label>Mot de passe</Form.Label>
+           <Form.Control
+             required
+             type="password"
+             placeholder="Entrez votre mot de passe"
+             name="confirm" 
+             ref={newPassInputRef}
+           />
+           <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+         </Form.Group>
+         <Button type="submit" variant="dark" onClick={setUpdate} className="w-100 mt-2">Changer</Button>
         {redirect? <Redirect to="/login" />: null}
-    </form>
+    </Form>
     )
 }
 export default ForgetPass
