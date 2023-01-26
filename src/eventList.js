@@ -1,10 +1,8 @@
-import React from 'react'
-import { useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import Axios from 'axios';
-import rech from './mesImages/rech.jpg'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import axios from 'axios'
-
-
 
 function EventList() {
     const [data, setDate] = useState([])
@@ -83,16 +81,19 @@ function EventList() {
     }
     })
     return (
-        <div className='eventL'>
-            <div className='recherche'>
-            <img src={rech} alt="" className='img'/>
-            <input type="text" name="search" id="search" placeholder=" un événement ici en entrant son titre" onChange={handleSearch} />
+        <>
+        <div className="d-flex">
+            
+            <Form className="d-flex">
+                <Form.Control type="search" placeholder="Rechercher avec le titre"
+                className="me-2" aria-label="search" name="search" id="search" onChange={handleSearch}/>
+                <Button variant="outline-dark">Rechercher</Button>
+            </Form>
+            <h1>Liste des évènements</h1>
             </div>
-            <h1>Events List</h1>
             <hr/>
             {arr}
-            
-        </div>
+        </>
     )
 }
 export default EventList

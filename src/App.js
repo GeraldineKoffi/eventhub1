@@ -3,31 +3,27 @@ import './style.css'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Header from './header'
 import Footer from './footer'
-import Inscription from './inscription'
 import Home from './home'
 import Login from './login'
 import LoginAS from './loginAS'
 import LoginAdmin from './loginAdmin'
+import LoginOrg from './loginOrg'
 import InscriptionOrg from './inscriptionOrg'
-import EventList from './eventList'
-import Events from './events'
+import Inscription from './inscription'
+import InscriptionAdmin from './InscriptionAdmin'
 import ForgetPass from './forgetPass'
 import ForgetPassOrg from './forgetPassOrg'
 import ForgetPassAd from './forgetPassAd'
 import ForgetPassAS from './forgetPassAS'
+import Events from './events'
 import Dashboard from './dashboard'
 import DashboardAd from './dashboardAd'
 import DashboardOrg from './dashboardOrg'
 import DashboardSup from './dashboardSup'
 import ModifEvent from './modifEvent'
-import InscriptionAdmin from './InscriptionAdmin'
 import Role from './role'
 import RoleConnect from './roleConnect'
-import LoginOrg from './loginOrg'
 import ListPart from './listPart'
-
-
-
 
 function App(){
     const [update, setUpdate] = React.useState(false)
@@ -108,10 +104,6 @@ function App(){
                     <DashboardSup />
                 </Route>
 
-                <Route path={"/eventList"}>
-                    <EventList />
-                </Route>
-
                 <Route path={"/events"}>
                     <Events />
                 </Route>
@@ -124,8 +116,8 @@ function App(){
                     <ListPart />
                 </Route>
 
-
             </Switch>
+            <Footer />
 
         </Router>
     )
