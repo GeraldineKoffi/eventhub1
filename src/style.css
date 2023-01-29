@@ -10,58 +10,43 @@
 .image{
     margin-top: 55px;
 }
-.present{
-    width: 70%;
-    height: 200px;
-    border: 1px solid white;
-    box-shadow:  0px 1px 20px white;
-    margin: -20% auto;
-}
-h5{
-    font-size: 30px;
-    color:white;
-}
-@media only screen and (max-width:1300px){
-    h5{
-        font-size:20px;
-    }
-    }
-    
-@media only screen and (max-width:900px){
-h5{
-    font-size:18px;
-}
+.image h1{
+    text-shadow:  0px 1px 20px black;
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    color: white;
+    font-weight: bold;
 }
 @media only screen and (max-width:700px){
-    h5{
-        font-size:13px;
+    .image h1{
+        font-size:20px;
+        top: 40%;
+    }
+    }
+   
+@media only screen and (max-width:1050px){
+ .image h1{
+    top: 25%;
+    left: 20%;
+}
+}
+@media only screen and (max-width:1150px){
+    .image h1{
+        left: 25%;
+    }
     }
     
-    }
-    
-
+.eventList{
+    margin-top: 20px;
+}
 /*footer*/
 .footer{
-    display: flex;
-    color: #005C96;
-    height: 50px;
-    width: 100%;
-    background: rgba(0, 0,0, 0.5);
-    margin-top: 59px;
+    background: rgba(17, 16, 16, 0.93);
+    color: white;
     
 }
-.copyright p{
-    color: white;
-    left: 310%;
-    position: relative;
-}
-.copyright a{
-    text-decoration: none;
-    color: white;
-}
-.copyright a:hover{
-    color: #005C96;
-}
+
 /*Login*/
 .login{
     width: 35%;
@@ -156,80 +141,45 @@ h5{
     }
         
 /*inscription*/
-.signup{
+.signUp{
     width: 35%;
-    box-shadow: 1px 2px 15px #273633;
-    height: 450px;
+    border:1px solid black;
     margin:75px auto;
     font-weight:bold;
     padding-left: 30px;
     padding-top:30px;
 }
-
-
-@media only screen and (max-width:1300px){
-   
-    #role{
-        position: absolute;
-        right: 20%;
-    }
-    }
-   
-  
+ 
 /*role*/
 .role{
-    margin-top: 85px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-   
+    margin-top: 80px;
+    margin-left: 15%;
+    display: flex;
 }
 .user{
-    position: relative;
-    text-align: center;
-    align-items: center;
-    left:15%;
-    width: 50%;
-    height: 400px;
-    max-width: 500px;
-   border: 1PX solid #005C96;
-   box-shadow: 0 10px 10px  rgb(138, 161, 182);
+    width: 40%;
+    height: 300px;
+   border: 1px solid black;
+   box-shadow: 0 10px 10px  black;
 }
 .userIcon{
-    position: relative;
-    left: 25%;
-    top: 50px;   
+    width: 150px;
+    margin-left: 30%;
+   margin-top: 20px;
 }
 .org{
-    position: absolute;
-    right: 15%;
-    top: 21.7%;
-    text-align: center;
-    align-items: center;
-    width: 50%;
-    height: 400px;
-    max-width: 500px;
-   border: 1PX solid #005C96;
-   box-shadow: 0 10px 10px  rgb(138, 161, 182);
+    width: 40%;
+    height: 300px;
+   border: 1px solid black;
+   box-shadow: 0 10px 10px  black;
 }
-.userIcon1{
-    position: relative;
-    left: -10px;
-    top: 50px;   
-}
-.user .valid{
-    width: 250px;
-    position: relative;
-    left: -23%;
-    top: 25%;
-}
-.org .valid{
-    width: 250px;
-    position: relative;
-    left: -10px;
-    top: 25%;
+.orgIcon{
+    width: 190px;
+    margin-left: 30%;
+    margin-top: 43px;
 }
 
+/*
 @media only screen and (max-width:1456px){
     .user{
         left: 10%;
@@ -398,3 +348,147 @@ h5{
     
 
 
+*/
+.event{
+    width: 35%;
+    border:1px solid black;
+    margin:75px auto;
+    font-weight:bold;
+    padding-left: 30px;
+    padding-top:30px;
+}
+/*dashboard*/
+.dashboard{
+   margin-top: 70px;
+}
+
+.imgProfil{
+    width: 200px;
+    height: 190px;
+    position: relative;
+    border: 5px solid black;
+    border-radius: 50%;
+    background-size: cover;
+    left: 15px;
+}
+.img{
+    position: absolute;
+    top: 34%;
+    left: 12%;
+    outline: none;
+    width: 90px;
+    height: 90px;   
+    cursor: pointer;
+    border: none;
+}
+.img::-webkit-file-upload-button{
+   visibility: hidden;
+}
+.img::before{
+ content: url('./dashboard/appareil.png');
+ -webkit-user-select: none;
+}
+.info{
+    position: relative;
+    font-weight: bold;
+    color: black;
+    font-size: 15px;
+    top: 20px;
+    left: 15px;
+}
+.modif{
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+.formModif{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 15px;
+    width: 25%;
+}
+/*liste des evenements*/
+.interest{
+    margin-top: 70px;
+    
+}   
+.eventL{
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    width: 70%;
+    font-size: 15px;
+    
+} 
+.userBloquer {
+    position: relative;
+   margin-top: 30%;
+   margin-left: 10px;
+}
+.orgBloquer {
+    position: absolute;
+   top: 137%;
+   width: 50%;
+    right: 0;
+ }
+ 
+ 
+/*modification evenements*/
+.modifEvent{
+    width: 40%;
+    height: 650px;
+    box-shadow: 0 10px 10px  rgb(138, 161, 182);
+    margin: 20px auto;
+    background: #005C96;
+    padding-left: 40px;
+}
+.modifEvent h3{
+    padding-top: 30px;
+}
+.modifProfil input{
+    width: 250px;
+}
+
+.modifEvent .valid{
+    color: black;
+    border: 1px solid black;
+    position: relative;
+    top: -10px;
+}
+
+.dashboardAd .listEvent{
+    top: -95px;
+}
+/*interest*/
+.interest{
+    position: absolute;
+    top: 10px;
+    width: 50%;
+    height: 90px;
+    border-radius: 5px;
+    left: 30%;
+}
+.interest .listEvent{
+    top: 5px;
+    text-align: center;
+    width: 90%;
+    font-size: 20px;
+}
+/*list participant*/
+.listPart{
+    background: #005C96;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 10px;
+    width: 50%;
+    height: 40px;
+    position: relative;
+    left: 20px;
+    color: white;
+}
+.list {
+    position: relative;
+    text-align: center;
+    left: 20px;
+    
+}

@@ -7,15 +7,16 @@ import EventList from './eventList'
 function Home(){
 
     return(
-      <>
+      <div id="event">
         <div className="image">
           <img src={img1} alt="" width="100%"/>
-              <h5>Bienvenue sur le site EventHub</h5>
-         </div>
-         
+          <h1> Bienvenue sur le site EventHub</h1>
+          </div>
+          <div className="eventList">
           <EventList/>
+          </div>
                  
-        </>
+        </div>
     )
 }
 export default Home

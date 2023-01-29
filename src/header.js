@@ -54,13 +54,23 @@ function Header( { update, setUpdate } ){
               <Offcanvas.Header closeButton>
               </Offcanvas.Header>
                <Offcanvas.Body>
-          
+          {!localStorage.getItem('id')?
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                   <Nav.Link href="/">Acceuil</Nav.Link>
-                  <Nav.Link href="#event">Evènements</Nav.Link>
-                  <Nav.Link href="#contact">Contacts</Nav.Link>
+                  <Nav.Link href="/#event">Evènements</Nav.Link>
+                  <Nav.Link href="/#contact">Contacts</Nav.Link>
                   <Nav.Link href="/roleConnect">Connexion</Nav.Link>
-                </Nav>
+                </Nav>:
+                <Nav className="justify-content-end flex-grow-1 pe-3">
+                <Nav.Link href="/">Acceuil</Nav.Link>
+                <Nav.Link href="/#event">Evènements</Nav.Link>
+                <Nav.Link href="/#contact">Contacts</Nav.Link>
+                <Nav.Link href={"/"} onClick={logout}>Déconnexion</Nav.Link>
+                {redirect ? <Redirect to ="/"/>:null}
+                <Nav.Link >Profil</Nav.Link>
+
+              </Nav>}
+
                 </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>

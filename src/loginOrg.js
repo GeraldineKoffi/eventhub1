@@ -90,7 +90,7 @@ function LoginOrg(){
         <Link to={'/forgetPass'} className="pass">Mot de passe oublié?</Link>
     </Form.Group>
       <Button type="submit" variant="dark" className="w-100 mt-2">Se connecter</Button>
-      {redirect ? <Redirect to ="/dashboard"/>:null}
+      {redirect ? <Redirect to ="/dashboardOrg"/>:null}
       <div className="compte">
       <span>Vous n'avez pas de compte,</span><Link to={'./role'} className="newCompte">Créer un compte?</Link>
       </div>

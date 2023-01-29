@@ -1,6 +1,8 @@
 import utilisateur1 from './utilisateur1.png'
 import axios from 'axios'
 import React, {useEffect, useState,useRef} from 'react'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
 
 function profilAD(){
      
@@ -8,7 +10,6 @@ function profilAD(){
  const nameInputRef=useRef();
  const prenomInputRef=useRef();
  const telInputRef=useRef();
-const emailInputRef=useRef();
  const [update,setUpdate]=useState(false)
  useEffect(()=>{
  
@@ -71,23 +72,29 @@ const emailInputRef=useRef();
         <p>{ localStorage.getItem('mail')}</p>
         <p>{ localStorage.getItem('telephone')}</p>
         </div>
-        <button className='valid' onClick={modif}>Modifier</button>
-       {show3? <div className='modifProfil'>
+        <Button type="submit" variant="dark"  className="modif" onClick={modif}>Modifier</Button>
+       {show3? 
+        <Form className="formModif">
         <h3 >Modifier vos informations</h3>
-        <div className='infoModif'>
-        
-         <input value={ localStorage.getItem('id')}  ref={idInputRef} type="hidden"/><br/>
-         <label>Nom</label><br/>
-         <input placeholder={ localStorage.getItem('lasttName')} ref={nameInputRef} /><br/>
-         <label>Prénom</label><br/>
-         <input placeholder={ localStorage.getItem('firstName')} ref={prenomInputRef} /><br/>
-        <label>Numéro</label><br/>
-        <input placeholder={ localStorage.getItem('telephone')} ref={telInputRef} /><br/>
-         <label>Email</label><br/>
-         <input placeholder={ localStorage.getItem('mail')} ref={emailInputRef} /><br/>
-         <button className='valid' onclick={setUpdateAd}>Valider</button>
-         </div>
-      </div>:null}
+         <Form.Group >
+         <Form.Control 
+            value={ localStorage.getItem('id')} ref={idInputRef} type="hidden"/>
+         </Form.Group>
+         <Form.Group>
+         <Form.Label>Nom</Form.Label>
+         <Form.Control placeholder={ localStorage.getItem('lastName')} ref={nameInputRef} />
+         </Form.Group>
+         <Form.Group>
+         <Form.Label>Prénom</Form.Label>
+         <Form.Control placeholder={ localStorage.getItem('firstName')} ref={prenomInputRef} />
+         </Form.Group>
+         <Form.Group>
+         <Form.Label>Numéro</Form.Label>
+         <Form.Control placeholder={ localStorage.getItem('phone')} ref={telInputRef} />
+         </Form.Group>
+         <Button type="submit" variant="dark" onClick={setUpdateAd}>Modifier</Button>
+         </Form>
+      :null}
       </div>
     )
 }

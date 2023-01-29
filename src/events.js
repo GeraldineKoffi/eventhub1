@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 
 function Events() {
@@ -23,9 +22,9 @@ function Events() {
 
 
   return (
-    <Form noValidate validated={validated} onSubmit={handleSubmit}>
-
-        <Form.Group as={Col} md="4">
+    <Form noValidate validated={validated} onSubmit={handleSubmit} className="event rounded p-4 p-sm-3">
+    <Form.Label className="head">Création d'évènement</Form.Label>
+        <Form.Group className="mb-3">
           <Form.Label>Titre</Form.Label>
           <Form.Control
             required
@@ -34,14 +33,14 @@ function Events() {
               />
           <Form.Control.Feedback type="invalid">Ce champs est requied</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4">
+        <Form.Group className="mb-3">
           <Form.Label>Description</Form.Label>
           <Form.Control required as="textarea" rows={3} placeholder="Décrivez votre évènement"/>
           <Form.Control.Feedback type="invalid">
           Ce champs est requied!
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4">
+        <Form.Group className="mb-3">
           <Form.Label>Date</Form.Label>
           <Form.Control
             required
@@ -50,7 +49,7 @@ function Events() {
           />
           <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4">
+        <Form.Group className="mb-3">
           <Form.Label>Statut</Form.Label>
             <Form.Select required>
               <option>Payant</option>
@@ -61,35 +60,35 @@ function Events() {
             </Form.Control.Feedback>
         </Form.Group>
       
-        <Form.Group as={Col} md="4">
+        <Form.Group className="mb-3">
           <Form.Label>Prix du ticket</Form.Label>
           <Form.Control type="text" placeholder="City" required />
           <Form.Control.Feedback type="invalid">
             Ce champs est requied!
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4">
+        <Form.Group className="mb-3">
           <Form.Label>Nombre de ticket</Form.Label>
           <Form.Control type="text" placeholder="Entrez le nombre de ticket disponible" required />
           <Form.Control.Feedback type="invalid">
            Ce champs est requied!
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4">
+        <Form.Group className="mb-3">
           <Form.Label>Actif</Form.Label>
           <Form.Control type="text" placeholder="Zip" required />
           <Form.Control.Feedback type="invalid">
           Ce champs est requied!
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group as={Col} md="4">
+        <Form.Group className="mb-3">
       <Form.Label>Ajouter des images</Form.Label>
       <Form.Control type="file" multiple onchange={fileOnchange}/>
       <Form.Control.Feedback type="invalid">
           Ce champs est requied!
           </Form.Control.Feedback>
       </Form.Group>
-      <Button type="submit">Valider</Button>
+      <Button type="submit" variant="dark" className="w-100 mt-2">Valider</Button>
     </Form>
   );
 }

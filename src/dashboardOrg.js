@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Axios from 'axios';
 import { Link } from 'react-router-dom'
 import ProfilOrg from './dashboard/profilOrg'
-import './dashboard/style.css'
 import axios from 'axios';
 
 function dashboardOrg() {

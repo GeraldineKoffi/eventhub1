@@ -1,134 +1,124 @@
-import React, { useRef } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { useState, useRef } from 'react';
+import {Redirect} from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 
-
 function Inscription() {
-  const [redirect, setRedirect] = React.useState(false)
+  const [validated, setValidated] = useState(false);
   const nameInputRef = useRef();
-  const nameInputRefError = useRef();
   const prenomInputRef = useRef();
-  const prenomInputRefError = useRef();
   const emailInputRef = useRef();
-  const emailInputRefError = useRef();
   const telInputRef = useRef();
-  const telInputRefError = useRef();
   const passwordInputRef = useRef();
-  const passwordInputRefError = useRef();
   const passwordBixInputRef = useRef();
-  const passwordBixInputRefError = useRef();
+  const [checked , setChecked]=useState()
+  const  [redirect, setRedirect]=useState(false)
+  
+  const handleSubmit = async(event) => {
+    event.preventDefault();
 
-
-
-  const handleSubmit = async (event) => {
-    event.preventDefault()
     const lastName = nameInputRef.current.value;
     const firstName = prenomInputRef.current.value
     const mail = emailInputRef.current.value;
     const pass = passwordInputRef.current.value;
     const phone = telInputRef.current.value;
     const confirm = passwordBixInputRef.current.value;
-    if (!lastName || !firstName || !mail || !phone || !pass || !confirm || pass !== confirm || phone.length < 10 || phone.length > 10) {
 
-      if (!lastName) {
-        nameInputRefError.current.innerHTML = "Ce champs est requis!"
-      } else {
-        nameInputRefError.current.innerHTML = ""
+    const form = event.currentTarget;
+    if (form.checkValidity() === false || phone.length < 10 || phone.length > 10 || pass!=confirm) { 
+      event.stopPropagation();
+    } 
 
-      }
-      if (!firstName) {
-        prenomInputRefError.current.innerHTML = "Ce champs est requis!"
-      } else {
-        prenomInputRefError.current.innerHTML = ""
-      }
-      if (!mail) {
-        emailInputRefError.current.innerHTML = "Ce champs est requis!"
-      } else {
-        emailInputRefError.current.innerHTML = ""
-      }
-      if (!phone) {
-        telInputRefError.current.innerHTML = "Ce champs est requis!"
-      } else if (phone.length < 10 || phone.length > 10) {
-        telInputRefError.current.innerHTML = "Resaississez le numéro de téléphone"
-      }
-      else {
-        telInputRefError.current.innerHTML = ""
-      }
-      if (!pass) {
-        passwordInputRefError.current.innerHTML = "Ce champs est requis!"
-      } else {
-        passwordInputRefError.current.innerHTML = ""
-      }
-      if (!confirm) {
-        passwordBixInputRefError.current.innerHTML = "Ce champs est requis!"
-      } else
-        if (pass !== confirm) {
-          passwordBixInputRefError.current.innerHTML = "Le mot de passe est différent du premier"
-        }
-        else {
-          passwordBixInputRefError.current.innerHTML = ""
-          return
-        }
-    }
-    else {
-      nameInputRefError.current.innerHTML = ""
-      prenomInputRefError.current.innerHTML = ""
-      emailInputRefError.current.innerHTML = ""
-      telInputRefError.current.innerHTML = ""
-      passwordInputRefError.current.innerHTML = ""
-      passwordBixInputRefError.current.innerHTML = ""
-
-
-      try {
-        await axios.post("http://localhost:4000/user", {
-          lastName,
+    setValidated(true);
+    try{
+      await axios.post("http://localhost:4000/user",{
+        lastName,
           firstName,
           mail,
           pass,
           phone
+      })
+     
+      setRedirect(true)
 
-        })
-
-        setRedirect(true)
-
-      } catch (err) {
-        console.log("l'erreur est :", err);
-      }
+    } catch (err) {
+      console.log("l'erreur est :", err);
     }
-
-
-  }
-
+  
+  };
 
   return (
-    <form className='signup' onSubmit={handleSubmit}>
-      <div className='head'>SignUp User</div><br />
-      <label>Nom </label><br />
-      <input placeholder='Entrer votre Nom ' id="name" ref={nameInputRef} /><br />
-      <div className='error' ref={nameInputRefError} style={{ color: "red" }} />
-      <label>Prénom </label><br />
-      <input placeholder='Entrer votre prénom ' id="prenom" ref={prenomInputRef} /><br />
-      <div className='error' ref={prenomInputRefError} style={{ color: "red" }} />
-
-      <label>Email</label><br />
-      <input placeholder='Entrer un email' type="email" id="email" ref={emailInputRef} /><br />
-      <div className='error' ref={emailInputRefError} style={{ color: "red" }} />
-      <label>Téléphone</label><br />
-      <input placeholder='Entrer votre numéro de téléphone' id="telephone" ref={telInputRef} /><br />
-      <div className='error' ref={telInputRefError} style={{ color: "red" }} />
-      <label>Mot de passe</label><br />
-      <input placeholder='Entrer un mot de passe' id="password" type="password" ref={passwordInputRef} /><br />
-      <div className='error' ref={passwordInputRefError} style={{ color: "red" }} />
-      <label>Confirmer le mot de passe</label><br />
-      <input placeholder='Confirmer le mot de passe' id="passwordBix" type="password" ref={passwordBixInputRef} /><br />
-      <div className='error' ref={passwordBixInputRefError} style={{ color: "red" }} />
-
-      <button className='valid'>S'inscrire</button>
-      {redirect ? <Redirect to="/login" /> : null}
-
-
-    </form>
-
-  )
+   
+    <Form noValidate validated={validated} onSubmit={handleSubmit} className="signUp rounded p-4 p-sm-3">
+       <Form.Label className="head">Inscription</Form.Label>
+       <Form.Group className="mb-3">
+          <Form.Label>Nom</Form.Label>
+          <Form.Control
+            required
+            placeholder="Entrez votre nom"
+            name="name"
+            ref={nameInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Prénom</Form.Label>
+          <Form.Control
+            required
+            placeholder="Entrez votre prénom"
+            name="prenom"
+            ref={prenomInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            required
+            type="email"
+            placeholder="Entrez votre email"
+            name="email"
+            ref={emailInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Téléphone</Form.Label>
+          <Form.Control
+            required
+            type="number"
+            placeholder="Entrez votre numéro de téléphone"
+            name="phone"
+            ref={telInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Mot de passe</Form.Label>
+          <Form.Control
+            required
+            type="password"
+            placeholder="Entrez votre mot de passe"
+            name="password"
+            ref={passwordInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Confirmer le mot de passe</Form.Label>
+          <Form.Control
+            required
+            type="password"
+            placeholder="Confirmez votre mot de passe"
+            name="password"
+            ref={passwordBixInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+      <Button type="submit" variant="dark" className="w-100 mt-2">S'inscrire</Button>
+      {redirect ? <Redirect to ="/login"/>:null}
+    </Form>
+  );
 }
 export default Inscription

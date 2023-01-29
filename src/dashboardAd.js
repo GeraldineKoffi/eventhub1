@@ -3,9 +3,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Axios from "axios";
 import ProfilAD from './dashboard/profilAD'
-import  './dashboard/style.css'
 import UserBloquer from './dashboard/userBloquer'
 import OrgBloquer from './dashboard/orgBloquer'
+import Button from 'react-bootstrap/Button'
 
 
 function dashboardAd(){
@@ -36,23 +36,21 @@ function dashboardAd(){
 .map((data, index) => {
     var Id=data.id
     return(
-    <tr key={index}>
-    <td>{data.title}</td><td> {data.description}</td><td> {data.date}</td><td> {data.prix}</td><td>{data.actif.toString()}</td> <td><button onClick={()=>change(Id,index)} >Desactiver l'évènement</button></td>    
-
-    </tr>
+    <div key={index}>
+    <hr/>
+    <p>{data.title}  {data.description}  {data.date}  {data.prix} {data.actif.toString()} 
+    <Button variant="dark" onClick={()=>change(Id,index)} >Desactiver l'évènement</Button></p> 
+    </div>
     )
 })
     return(
-        <div className="dashboardAd">
+        <div className="dashboard">
            <ProfilAD/>
-           <h1>Liste des évènements</h1>
-           <table border={1} className="tableEvent">
-            <tr><td>Title</td><td>Description</td><td>Date</td><td>Price</td><td>Actif</td><td>Edit</td></tr>
+           <div className="eventL">
+           <h4>Liste des évènements</h4>
            {arr}
-           </table>
-           <br/>
-           
-           <UserBloquer/><br/>
+           </div>
+           <UserBloquer/>
            
            <OrgBloquer/>
 

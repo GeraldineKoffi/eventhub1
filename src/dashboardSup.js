@@ -2,7 +2,6 @@ import React from "react";
 import {Link} from 'react-router-dom'
 import { useEffect, useState } from "react";
 import Axios from "axios";
-import  './dashboard/style.css'
 import UserBloquer from './dashboard/userBloquer'
 import OrgBloquer from './dashboard/orgBloquer'
 

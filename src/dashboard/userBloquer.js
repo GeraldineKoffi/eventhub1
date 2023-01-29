@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
+import Button from 'react-bootstrap/Button'
 
 
 function UserBloquer() {
@@ -29,20 +30,28 @@ const arr = data
 .map((data, index) => {
     var Id=data.id
     return(
+        
         <tr key={index} >
-            <td>{data.id}</td>
-        <td>{data.lastName}</td><td> {data.firstName}</td><td> {data.phone}</td><td> {data.mail}</td><td>{data.actif}</td><td>
-        <button onClick={()=>change(Id,index)} >Editer l'utilisateur</button>
-        </td>
+        <td>{data.lastName}</td><td>{data.firstName}</td><td>{data.phone}</td><td>{data.mail}</td><td>{data.actif}</td>  
+       <td> <Button variant="dark" onClick={()=>change(Id,index)} >Editer l'utilisateur</Button></td>
+        
         </tr>
     )
 })
 return(
     <div className='userBloquer'>
         <h2>Liste des utilisateurs</h2>
-                <table border={1} width="100%">
-<tr><td>Id</td><td>Lastname</td><td>Firstname</td><td>Telephone</td><td>Mail</td><td>Statut</td><td>Edit</td></tr>
-        {arr}
+            <table>
+                <tr>
+                     <td>Lastname</td>
+                     <td>Firstname</td>
+                     <td>Telephone</td>
+                     <td>Mail</td>
+                     <td>Statut</td>
+                     <td>Edit</td>
+                 </tr>
+                 <tr><hr width="100%"/></tr>
+            {arr}
         </table>
 
     </div>

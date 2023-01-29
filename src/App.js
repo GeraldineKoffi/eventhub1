@@ -116,7 +116,7 @@ function App(){
                     <ListPart />
                 </Route>
 
-            </Switch>
+            </Switch><br/>
             <Footer />
 
         </Router>
