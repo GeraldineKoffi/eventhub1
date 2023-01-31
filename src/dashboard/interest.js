@@ -20,11 +20,11 @@ function Interest() {
     const arr = data
         .map((data, index) => {
             return (
-                <div key={index}>
-                    <hr/>
-                    <h5>{data.title} {data.description} {data.date} </h5>
-                    <hr/>
-                </div>
+                <tr key={index}>
+                  <th>{data.title}</th>
+                  <th>{data.description}</th> 
+                  <th>{data.date}</th>  
+                </tr>
             )
         }
         )
@@ -32,7 +32,17 @@ function Interest() {
     return (
         <div className='interest'>
             <h4>Liste des évènements auxquels vous vous êtes Intéressé</h4>
-            {arr}
+           
+            <table>
+                <tr>
+                    <th style={{fontWeight:"bold"}}>Titre</th>
+                    <th style={{fontWeight:"bold"}}>Description</th>
+                    <th style={{fontWeight:"bold"}}>Date</th>
+                </tr>
+               
+                {arr}
+               
+            </table>
         </div>
     )
 }

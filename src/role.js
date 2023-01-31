@@ -12,14 +12,14 @@ function Role(){
             <div className="user">
                 <img src={user} className="userIcon" alt=""/>
                 <Link to={'./inscription'} >
-                <Button type="submit" variant="dark" className="w-100 mt-2">Créer un compte utilisateur</Button>
+                <Button type="submit" variant="dark" className="rol w-100 mt-2">Créer un compte utilisateur</Button>
                 </Link>
             </div>
 
             <div className="org">
                 <img src={Org} className="orgIcon" alt=""/>
             <Link to={'./inscriptionorg'}>
-            <Button type="submit" variant="dark" className="w-100 mt-2">Créer un compte organisateur</Button>
+            <Button type="submit" variant="dark" className="rolo w-100 mt-2">Créer un compte organisateur</Button>
             </Link>
            </div>
            

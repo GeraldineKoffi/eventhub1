@@ -12,7 +12,6 @@ function Inscription() {
   const telInputRef = useRef();
   const passwordInputRef = useRef();
   const passwordBixInputRef = useRef();
-  const [checked , setChecked]=useState()
   const  [redirect, setRedirect]=useState(false)
   
   const handleSubmit = async(event) => {

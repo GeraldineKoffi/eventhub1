@@ -3,6 +3,7 @@ import Axios from 'axios';
 import { Link } from 'react-router-dom'
 import ProfilOrg from './dashboard/profilOrg'
 import axios from 'axios';
+import Button from 'react-bootstrap/Button'
 
 function dashboardOrg() {
 
@@ -32,7 +33,7 @@ function dashboardOrg() {
         })
       console.log(table)
       return (
-        <div className='listEvent' key={index}>
+        <div key={index}>
           <h5>{data.title} <br />{data.description} <br />{data.date}<br /> {data.prix}</h5>
           
           <Link to={`./modifEvent/${data.id}`}><button className="event1">Modifier évènement</button> </Link>
@@ -46,9 +47,11 @@ function dashboardOrg() {
   return (
     <div className="dashboard">
       <ProfilOrg />
-      <h1>Liste de vos évènements</h1>
+      <h3 className='ListEvent'>Liste de vos évènements</h3>
       {arr}
-      <Link to={'./events'}><button className="event">Créer un nouvel évènement</button></Link>
+      <Link to={'./events'}>
+        <Button variant="dark" className="buttonEvent">Créer un nouvel évènement</Button>
+      </Link>
 
     </div>
   )

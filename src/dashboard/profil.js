@@ -82,8 +82,8 @@ function Profil(){
         </div>
         <Button type="submit" variant="dark"  className="modif" onClick={modif}>Modifier</Button>
        {show3? 
-       <Form className="formModif">
-        <h3 >Modifier vos informations</h3>
+       <Form className="formModifU">
+        <h5>Modifier vos informations</h5>
          <Form.Group >
          <Form.Control 
             value={ localStorage.getItem('id')} ref={idInputRef} type="hidden"/>
@@ -99,7 +99,7 @@ function Profil(){
          <Form.Group>
          <Form.Label>Numéro</Form.Label>
          <Form.Control placeholder={ localStorage.getItem('phone')} ref={telInputRef} />
-         </Form.Group>
+         </Form.Group><br/>
          <Button type="submit" variant="dark" onClick={setUpdateOrg}>Modifier</Button>
          </Form>
       :null}

@@ -4,12 +4,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import {Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom';
+import {BiUserCircle} from 'react-icons/bi';
+import {FiLogOut} from 'react-icons/fi';
+
 
 
 
 function Header( { update, setUpdate } ){
   const [redirect, setRedirect]=useState(false)
+  const change=""
     
     useEffect(()=>{
 
@@ -24,20 +28,7 @@ function Header( { update, setUpdate } ){
         localStorage.removeItem("id")
         setUpdate(true)
     }
-    //function profil(){
-    //if(localStorage.getItem("role")==="user"){
-      //setRedirect(true)
-      //{redirect? <Redirect to="/dashboard" />: null}
-    //}
-    //else if(localStorage.getItem("role")==="organisateur"){
-      //setRedirect(true)
-      //{redirect? <Redirect to="/dashboardAd" />: null}
-    //}
-    //else{
-      //setRedirect(true)
-      //{redirect? <Redirect to="/" />: null}
-    //}
-  //}
+  
     return(
       <div className="Navbar">
       {['md'].map((expand) => (
@@ -59,16 +50,19 @@ function Header( { update, setUpdate } ){
                   <Nav.Link href="/">Acceuil</Nav.Link>
                   <Nav.Link href="/#event">Evènements</Nav.Link>
                   <Nav.Link href="/#contact">Contacts</Nav.Link>
-                  <Nav.Link href="/roleConnect">Connexion</Nav.Link>
+                  <Nav.Link href="/roleConnect" className='connect'>Connexion<BiUserCircle className='icon'/></Nav.Link>
                 </Nav>:
                 <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="/">Acceuil</Nav.Link>
                 <Nav.Link href="/#event">Evènements</Nav.Link>
                 <Nav.Link href="/#contact">Contacts</Nav.Link>
-                <Nav.Link href={"/"} onClick={logout}>Déconnexion</Nav.Link>
-                {redirect ? <Redirect to ="/"/>:null}
-                <Nav.Link >Profil</Nav.Link>
-
+                {(localStorage.getItem("role")==="user")?
+                <Nav.Link href="./dashboard">Profil</Nav.Link>:
+                (localStorage.getItem("role")==="organisateur")?
+                <Nav.Link href="./dashboardOrg">Profil</Nav.Link>:
+                <Nav.Link href="./dashboardAd">Profil</Nav.Link>
+      }
+                <Nav.Link href={"/"} onClick={logout} className='deconnect'>Déconnexion<FiLogOut className='icon'/></Nav.Link>
               </Nav>}
 
                 </Offcanvas.Body>

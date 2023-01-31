@@ -6,39 +6,45 @@ import axios from 'axios'
 
 function InscriptionOrg() {
   const [validated, setValidated] = useState(false);
-  const nameInputRef = useRef();
-  const prenomInputRef = useRef();
-  const emailInputRef = useRef();
-  const telInputRef = useRef();
-  const passwordInputRef = useRef();
-  const passwordBixInputRef = useRef();
   const  [redirect, setRedirect]=useState(false)
-  
+  const nameInputRef= useRef();
+  const adressInputRef=useRef();
+  const emailInputRef= useRef();
+  const telInputRef= useRef();
+  const passwordInputRef= useRef();
+  const passwordBixInputRef= useRef();
+  const gerantInputRef=useRef();
+  const numRcsInputRef=useRef();
+   
   const handleSubmit = async(event) => {
     event.preventDefault();
 
-    const lastName = nameInputRef.current.value;
-    const firstName = prenomInputRef.current.value
-    const mail = emailInputRef.current.value;
-    const pass = passwordInputRef.current.value;
-    const phone = telInputRef.current.value;
-    const confirm = passwordBixInputRef.current.value;
+    const name= nameInputRef.current.value;
+    const mail= emailInputRef.current.value; 
+    const pass= passwordInputRef.current.value;
+    const tel= telInputRef.current.value; 
+    const adresse= adressInputRef.current.value; 
+    const gerant= gerantInputRef.current.value;
+    const num_RCS= numRcsInputRef.current.value;
+    const confirm=passwordBixInputRef.current.value;
 
     const form = event.currentTarget;
-    if (form.checkValidity() === false || phone.length < 10 || phone.length > 10 || pass!=confirm) { 
+    if (form.checkValidity() === false || tel.length < 10 || tel.length > 10 || pass!=confirm) { 
       event.stopPropagation();
     } 
 
     setValidated(true);
     try{
       await axios.post("http://localhost:4000/organisateur",{
-        lastName,
-          firstName,
-          mail,
-          pass,
-          phone
-      })
-     
+        name,
+        mail,
+        pass,
+        tel,
+        adresse,
+        gerant,
+        num_RCS
+      }
+      )
       setRedirect(true)
 
     } catch (err) {
@@ -52,7 +58,7 @@ function InscriptionOrg() {
     <Form noValidate validated={validated} onSubmit={handleSubmit} className="signUp rounded p-4 p-sm-3">
        <Form.Label className="head">Inscription</Form.Label>
        <Form.Group className="mb-3">
-          <Form.Label>Nom</Form.Label>
+          <Form.Label>Nom Entreprise</Form.Label>
           <Form.Control
             required
             placeholder="Entrez votre nom"
@@ -61,16 +67,7 @@ function InscriptionOrg() {
           />
           <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
         </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Prénom</Form.Label>
-          <Form.Control
-            required
-            placeholder="Entrez votre prénom"
-            name="prenom"
-            ref={prenomInputRef}
-          />
-          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
-        </Form.Group>
+      
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
           <Form.Control
@@ -83,12 +80,42 @@ function InscriptionOrg() {
           <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="mb-3">
+          <Form.Label>Gerant</Form.Label>
+          <Form.Control
+            required
+            placeholder="Entrez votre prénom"
+            name="gerant"
+            ref={gerantInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Adresse</Form.Label>
+          <Form.Control
+            required
+            placeholder="Entrez votre prénom"
+            name="adresse"
+            ref={adressInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Numéro RCS</Form.Label>
+          <Form.Control
+            required
+            placeholder="Entrez votre prénom"
+            name="numRcs"
+            ref={numRcsInputRef}
+          />
+          <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
+        </Form.Group>
+        <Form.Group className="mb-3">
           <Form.Label>Téléphone</Form.Label>
           <Form.Control
             required
             type="number"
             placeholder="Entrez votre numéro de téléphone"
-            name="phone"
+            name="tel"
             ref={telInputRef}
           />
           <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
@@ -116,7 +143,7 @@ function InscriptionOrg() {
           <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
         </Form.Group>
       <Button type="submit" variant="dark" className="w-100 mt-2">S'inscrire</Button>
-      {redirect ? <Redirect to ="/login"/>:null}
+      {redirect ? <Redirect to ="/loginOrg"/>:null}
     </Form>
   );
 }

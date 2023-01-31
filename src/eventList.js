@@ -56,7 +56,7 @@ function EventList() {
 
     if(data.statut==="Payant"){
         return (
-            <div className='eventList' key={index}>
+            <div  key={index}>
                 <h5 className='title'>{data.title} </h5>
                 <h5 className='descrp'>{data.description}</h5>
                 <h5 className='date'> {data.date}</h5>  
@@ -82,14 +82,14 @@ function EventList() {
     })
     return (
         <>
-        <div className="d-flex">
-            
-            <Form className="d-flex">
-                <Form.Control type="search" placeholder="Rechercher avec le titre"
+        <div className="eventList" >
+        <h2>Liste des évènements</h2>
+            <Form className="search d-flex">
+                <Form.Control type="search" placeholder="Rechercher avec le titre" 
                 className="me-2" aria-label="search" name="search" id="search" onChange={handleSearch}/>
                 <Button variant="outline-dark">Rechercher</Button>
             </Form>
-            <h1>Liste des évènements</h1>
+           
             </div>
             <hr/>
             {arr}

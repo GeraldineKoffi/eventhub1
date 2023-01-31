@@ -38,6 +38,7 @@ function LoginAdmin(){
         localStorage.setItem('firstName', response.data.admin.firstName)
         localStorage.setItem('mail', response.data.admin.mail)
         localStorage.setItem('telephone', response.data.admin.telephone)
+        localStorage.setItem('role',"admin")
         localStorage.setItem('id', response.data.admin.id)
         setRedirect(true)
       }) 
@@ -80,7 +81,7 @@ function LoginAdmin(){
         onchange={()=>setChecked(!checked)}
           label="Se souvenir de moi"
         />
-        <Link to={'/forgetPass'} className="pass">Mot de passe oublié?</Link>
+        <Link to={'/forgetPassAd'} className="pass">Mot de passe oublié?</Link>
     </Form.Group>
       <Button type="submit" variant="dark" className="w-100 mt-2">Se connecter</Button>
       {redirect ? <Redirect to ="/dashboardAd"/>:null}

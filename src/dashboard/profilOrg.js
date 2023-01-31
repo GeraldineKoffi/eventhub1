@@ -1,7 +1,8 @@
-import React, { useEffect, useState,useRef} from 'react'
-import axios from 'axios'
 import utilisateur1 from './utilisateur1.png'
-
+import axios from 'axios'
+import React, {useEffect, useState,useRef} from 'react'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
 
 function ProfilOrg(){   
    const idInputRef=useRef();
@@ -73,21 +74,29 @@ function ProfilOrg(){
         <p>{ localStorage.getItem('gerant')}</p>
         <p>{ localStorage.getItem('num_RCS')}</p>
         </div>
-        <button className='valid' onClick={modif}>Modifier</button>
-       {show3? <div className='modifProfil'>
+        <Button type="submit" variant="dark"  className="modif" onClick={modif}>Modifier</Button>
+       {show3?  
+        <Form className="formModif">
         <h3 >Modifier vos informations</h3>
-        <div className='infoModif'>
-
-         <input   value={ localStorage.getItem('id')} ref={idInputRef} type="hidden" /><br/>
-         <label>Nom Entreprise</label><br/>
-         <input placeholder={ localStorage.getItem('name')} ref={nameInputRef} /><br/>
-        <label>Numéro</label><br/>
-        <input placeholder={ localStorage.getItem('tel')}ref={telInputRef} /><br/>
-         <label>gerant</label><br/>
-         <input placeholder={localStorage.getItem('gerant')} ref={gerantInputRef} /><br/>
-         <button className='valid' onClick={setUpdateOrg}>Valider</button>
-         </div>
-      </div>:null}
+         <Form.Group >
+         <Form.Control 
+            value={ localStorage.getItem('id')} ref={idInputRef} type="hidden"/>
+         </Form.Group>
+         <Form.Group>
+         <Form.Label>Nom</Form.Label>
+         <Form.Control placeholder={ localStorage.getItem('name')} ref={nameInputRef} />
+         </Form.Group>
+         <Form.Group>
+         <Form.Label>Téléphone</Form.Label>
+         <Form.Control placeholder={ localStorage.getItem('tel')} ref={telInputRef} />
+         </Form.Group>
+         <Form.Group>
+         <Form.Label>Gérant</Form.Label>
+         <Form.Control placeholder={ localStorage.getItem('gerant')} ref={gerantInputRef} />
+         </Form.Group>
+         <Button type="submit" variant="dark" onClick={setUpdateOrg}>Modifier</Button>
+         </Form>
+      :null}
       </div>
     )
 }

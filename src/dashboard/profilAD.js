@@ -73,7 +73,7 @@ function profilAD(){
         <p>{ localStorage.getItem('telephone')}</p>
         </div>
         <Button type="submit" variant="dark"  className="modif" onClick={modif}>Modifier</Button>
-       {show3? 
+       {show3?  
         <Form className="formModif">
         <h3 >Modifier vos informations</h3>
          <Form.Group >

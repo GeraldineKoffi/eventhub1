@@ -12,9 +12,9 @@ function Home(){
           <img src={img1} alt="" width="100%"/>
           <h1> Bienvenue sur le site EventHub</h1>
           </div>
-          <div className="eventList">
+          
           <EventList/>
-          </div>
+          
                  
         </div>
     )
