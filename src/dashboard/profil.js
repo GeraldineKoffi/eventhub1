@@ -13,13 +13,14 @@ function Profil(){
    const nameInputRef=useRef();
    const prenomInputRef=useRef();
    const telInputRef=useRef();
-   const [update,setUpdate]=useState(false)
+   const [update,setUpdate]=useState(false);
+   const [show, setShow]=useState(false)
    
    useEffect(()=>{
   
    },[update])
    
-   const setUpdateOrg = async()=>{
+   const setUpdateUser = async()=>{
       const lastName= nameInputRef.current.value;
       const firstName= prenomInputRef.current.value;
       const phone=telInputRef.current.value
@@ -34,24 +35,24 @@ function Profil(){
                localStorage.setItem('firstName', response.data.firstName)
                localStorage.setItem('phone', response.data.phone)
                localStorage.setItem('id', response.data.id)
-               setShow3(!show3)
+               setShow(!show)
                setUpdate(!update)
          }
          else if(!lastName && !firstName && !phone){
-            setShow3(!show3)
+            setShow(!show)
             setUpdate(!update)
          }
          else if(lastName && !firstName && !phone){
             localStorage.setItem('lastName',response.data.lastName)
-            setShow3(!show3)
+            setShow(!show)
             setUpdate(!update)
          }else if(!lastName && firstName && !phone){
             localStorage.setItem('firstName',response.data.firstName)
-            setShow3(!show3)
+            setShow(!show)
             setUpdate(!update)
          }else if(!lastName && !firstName && phone){
             localStorage.setItem('phone',response.data.phone)
-            setShow3(!show3)
+            setShow(!show)
             setUpdate(!update)
          }
            }) 
@@ -63,16 +64,12 @@ function Profil(){
    
 }
   
-
-    const [show3, setShow3] = React.useState(false)
- 
- function modif(){
-    setShow3(!show3)
-    
+  function modif(){
+    setShow(!show)
  }
  
-    return(
-      <>
+    return( 
+      <div className='profil'>
         <img src={utilisateur1} alt='' className='imgProfil'/>  
         <input type="file" className='img' accept='image/*'/>
         <div className='info'>
@@ -80,9 +77,9 @@ function Profil(){
         <p>{localStorage.getItem('mail')}</p>
         <p>{ localStorage.getItem('phone')}</p>
         </div>
-        <Button type="submit" variant="dark"  className="modif" onClick={modif}>Modifier</Button>
-       {show3? 
-       <Form className="formModifU">
+        <Button type="submit" variant="dark"  className="modif" onClick={modif}>Editer le profil</Button>
+       {show? 
+       <Form className="formModif">
         <h5>Modifier vos informations</h5>
          <Form.Group >
          <Form.Control 
@@ -100,10 +97,11 @@ function Profil(){
          <Form.Label>Numéro</Form.Label>
          <Form.Control placeholder={ localStorage.getItem('phone')} ref={telInputRef} />
          </Form.Group><br/>
-         <Button type="submit" variant="dark" onClick={setUpdateOrg}>Modifier</Button>
+         <Button type="submit" variant="dark" className="valid" onClick={setUpdateUser}>Modifier</Button>
+         <Button type='reset'  className="valid"  variant="dark" onClick={modif} >Annuler</Button>
          </Form>
       :null}
-      </>
+      </div>
     )
 }
 export default Profil

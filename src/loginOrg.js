@@ -2,11 +2,9 @@ import React, { useState, useRef } from 'react';
 import {Redirect, Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 
-function LoginOrg(){
-
+function LoginOrg(update, setUpdate){ 
   const [validated, setValidated] = useState(false);
   const emailInputRef=useRef();
   const passInputRef=useRef();
@@ -41,7 +39,8 @@ function LoginOrg(){
             localStorage.setItem('gerant', response.data.organisateur.gerant)
             localStorage.setItem('num_RCS', response.data.organisateur.num_RCS)
             localStorage.setItem('role', "organisateur")
-        setRedirect(true)    
+            setUpdate(!update)
+            setRedirect(true)    
       }) 
      
         

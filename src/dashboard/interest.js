@@ -19,10 +19,14 @@ function Interest() {
 
     const arr = data
         .map((data, index) => {
+            const myStr=data.description;
+            const subStr=myStr.substring(0,100);
+
             return (
-                <tr key={index}>
+                
+                <tr key={index}> 
                   <th>{data.title}</th>
-                  <th>{data.description}</th> 
+                  <th>{subStr}...</th> 
                   <th>{data.date}</th>  
                 </tr>
             )
@@ -31,7 +35,7 @@ function Interest() {
 
     return (
         <div className='interest'>
-            <h4>Liste des évènements auxquels vous vous êtes Intéressé</h4>
+            <h5>Liste des évènements auxquels vous vous êtes Intéressé</h5>
            
             <table>
                 <tr>

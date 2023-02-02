@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import Axios from 'axios';
+import Button from 'react-bootstrap/Button';
 
 
 function OrgBloquer() {
@@ -30,20 +31,35 @@ const arr = data
     return(
         <tr key={index}>
             
-        <td>{data.name}</td><td> {data.adresse} </td><td>{data.mail}</td><td> {data.gerant}</td><td>{data.tel}</td><td> {data.num_RCS}</td><td> {data.actif}</td><td><button onClick={()=>change(Id,index)} className='Editer' >Editer l'organisateur</button></td>
+        <th>{data.name}</th>
+        <th> {data.adresse} </th>
+        <th>{data.mail}</th>
+        <th> {data.gerant}</th>
+        <th>{data.tel}</th>
+        <th> {data.num_RCS}</th>
+        <th> {data.actif}</th>
+        <th><Button variant="dark" onClick={()=>change(Id,index)} >Désactiver</Button></th>
         </tr>
     )
 })
 return(
     <div className='orgBloquer'>
-        <h2>Liste des organisateurs</h2>
-                <table >
-                   
-            <tr><td>Name</td><td>Adress</td><td>Mail</td><td>Gerant</td><td>Telephone</td><td>Num Rcs</td><td>Statut</td><td>Edit</td></tr>
-            <hr/>
+        <div className='headOrg'>
+        <h3>Liste des organisateurs</h3>
+        </div>
+        <table>     
+            <tr>
+                <th style={{fontWeight:"bold"}}>Nom</th>
+                <th style={{fontWeight:"bold"}}>Adresse</th>
+                <th style={{fontWeight:"bold"}}>Email</th>
+                <th style={{fontWeight:"bold"}}>Gerant</th>
+                <th style={{fontWeight:"bold"}}>Téléphone</th>
+                <th style={{fontWeight:"bold"}}>Numéro RCS</th>
+                <th style={{fontWeight:"bold"}}>Statut</th>
+                <th style={{fontWeight:"bold"}}>Editer</th>
+                </tr>
         {arr}
         </table>
-
     </div>
 
 )

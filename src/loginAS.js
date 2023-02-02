@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 
-function LoginAS(){
+function LoginAS({update, setUpdate}){
 
   const [validated, setValidated] = useState(false);
   const emailInputRef=useRef();
@@ -24,7 +24,7 @@ function LoginAS(){
     } 
     setValidated(true);
     try{
-      await axios.post('http://localhost:4000/Auth/SuperAdmin',{
+      await axios.post('http://localhost:4000/Auth/supAdmin',{
         Mail,
         Pass
       })
@@ -38,6 +38,8 @@ function LoginAS(){
         localStorage.setItem('mail', response.data.SuperAdmin.mail)
         localStorage.setItem('telephone', response.data.SuperAdmin.telephone)
         localStorage.setItem('id', response.data.SuperAdmin.id)
+        localStorage.setItem('role', "super admin")
+        setUpdate(!update)
         setRedirect(true)
       }) 
      

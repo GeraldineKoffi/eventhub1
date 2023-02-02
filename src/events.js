@@ -140,7 +140,10 @@ function Events() {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Actif</Form.Label>
-          <Form.Control type="text" placeholder="Zip" required name="actif" ref={actifInputRef} />
+          <Form.Select type="text" required name="actif" ref={actifInputRef} >
+          <option>Oui</option>
+         <option>Non</option>
+         </Form.Select>
           <Form.Control.Feedback type="invalid">
           Ce champs est requied!
           </Form.Control.Feedback>

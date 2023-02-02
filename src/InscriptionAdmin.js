@@ -21,11 +21,11 @@ function InscriptionAdmin() {
     const firstName = prenomInputRef.current.value
     const mail = emailInputRef.current.value;
     const pass = passwordInputRef.current.value;
-    const phone = telInputRef.current.value;
+    const telephone = telInputRef.current.value;
     const confirm = passwordBixInputRef.current.value;
 
     const form = event.currentTarget;
-    if (form.checkValidity() === false || phone.length < 10 || phone.length > 10 || pass!=confirm) { 
+    if (form.checkValidity() === false || telephone.length < 10 || telephone.length > 10 || pass!=confirm) { 
       event.stopPropagation();
     } 
 
@@ -36,7 +36,7 @@ function InscriptionAdmin() {
           firstName,
           mail,
           pass,
-          phone
+          telephone
       })
      
       setRedirect(true)

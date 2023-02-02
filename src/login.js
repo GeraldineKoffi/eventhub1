@@ -5,12 +5,12 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios'
 
 function Login({update, setUpdate}){
-
+  const  [redirect, setRedirect]=useState(false)
   const [validated, setValidated] = useState(false);
   const emailInputRef=useRef();
   const passInputRef=useRef();
   const [checked , setChecked]=useState()
-  const  [redirect, setRedirect]=useState(false)
+  
   
   const handleSubmit = async(event) => {
     event.preventDefault();

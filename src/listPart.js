@@ -21,15 +21,28 @@ function ListPart() {
    const arr = data
       .map((data, index) => {
          return (
-            <div className='listPart'>
-               <h2>{data.lastName}  {data.firstName}  {data.mail}  {data.phone}</h2>
-            </div>
+            <tr>
+               <th>{data.lastName}</th>
+               <th>{data.firstName}</th>
+               <th>{data.mail}</th>
+               <th>{data.phone}</th>
+            </tr>
          )
       })
    return (
-      <div className="list">
+      <div className="listPart">
          <h2>Liste des Inscrits</h2>
-         {arr}
+         <table>
+                <tr>
+                    <th style={{fontWeight:"bold"}}>Nom</th>
+                    <th style={{fontWeight:"bold"}}>Prénom</th>
+                    <th style={{fontWeight:"bold"}}>Email</th>
+                    <th style={{fontWeight:"bold"}}>Téléphone</th>
+                </tr>
+               
+                {arr}
+               
+            </table>
       </div>
    )
 }

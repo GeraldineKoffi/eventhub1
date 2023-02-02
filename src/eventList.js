@@ -85,7 +85,7 @@ function EventList() {
         <div className="eventList" >
         <h2>Liste des évènements</h2>
             <Form className="search d-flex">
-                <Form.Control type="search" placeholder="Rechercher avec le titre" 
+                <Form.Control type="search" placeholder="Titre de l'évènement" 
                 className="me-2" aria-label="search" name="search" id="search" onChange={handleSearch}/>
                 <Button variant="outline-dark">Rechercher</Button>
             </Form>

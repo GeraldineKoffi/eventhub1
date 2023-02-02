@@ -9,7 +9,7 @@ import EventBloc from "./dashboard/eventBloc";
 function dashboardAd(){
 
     return(
-        <div className="dashboard">
+        <div className="dashboardAD">
            <ProfilAD />
            <EventBloc /> 
            <UserBloquer/>

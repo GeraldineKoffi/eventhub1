@@ -2,8 +2,10 @@ import React, { useEffect,useRef,useState } from 'react'
 import axios from 'axios'
 import {Redirect} from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
-function ModifEvent() {
+function ModifEvent() { 
 
    const idInputRef=useRef();
    const titleInputRef=useRef();
@@ -51,26 +53,27 @@ function ModifEvent() {
    if(data!=null){
 
       return (
-         <div className='modifEvent' >
-            <h3>Modification Evènement</h3>
-        <input value={data.id} ref={idInputRef} type="hidden" /><br/>
-       <label>Titre</label><br/>
-       <input placeholder={data.title} ref={titleInputRef} /><br/>
-      <label>Description</label><br/>
-      <input placeholder={data.description} ref={descripInputRef} /><br/>
-      <label>Date</label><br/>
-      <input placeholder={data.date} ref={dateInputRef} /><br/>
-      <label>Prix</label><br/>
-      <input placeholder={data.prix} ref={PriceInputRef} /><br/>
-      <label>Statut</label><br/>
-      <input placeholder={data.statut} ref={statutInputRef} /><br/><br/>   
-      <label>évènements Actif</label><br/>
-      <input placeholder={data.actif} ref={actifInputRef} /><br/><br/>  
-      <p>
-   <button className='valid' onClick={setUpdateOrg}>Valider</button> 
-   {redirect ? <Redirect to={"/dashboardOrg"} /> : null}
-      </p>
-       </div>
+         <Form className='modifEvent rounded p-4 p-sm-3' >
+         <Form.Label className='head'>Modification Evènement</Form.Label>
+         <Form.Group>
+         <Form.Control value={data.id} ref={idInputRef} type="hidden" />
+         </Form.Group>
+         <Form.Label>Titre</Form.Label><br/>
+         <Form.Control placeholder={data.title} ref={titleInputRef} />
+         <Form.Label>Description</Form.Label><br/>
+         <Form.Control placeholder={data.description} ref={descripInputRef} />
+         <Form.Label>Date</Form.Label><br/>
+         <Form.Control placeholder={data.date} ref={dateInputRef} />
+         <Form.Label>Prix</Form.Label><br/>
+         <Form.Control placeholder={data.prix} ref={PriceInputRef} />
+         <Form.Label>Statut</Form.Label>
+         <Form.Control placeholder={data.statut} ref={statutInputRef}/>
+         <Form.Label>évènements Actif</Form.Label>
+         <Form.Control placeholder={data.actif.toString()} ref={actifInputRef}/> 
+         <br/>    
+         <Button variant='dark' className="w-100 mt-2" onClick={setUpdateOrg}>Valider</Button> 
+         {redirect ? <Redirect to={"/dashboardOrg"} /> : null}
+         </Form>
    )
 }
 }

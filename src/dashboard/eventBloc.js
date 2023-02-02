@@ -30,18 +30,34 @@ useEffect(() => {
 
 .map((data, index) => {
 var Id=data.id
+const myStr=data.description;
+const subStr=myStr.substring(0,100);
 return(
-<div key={index}>
-<hr/>
-<p>{data.title}  {data.description}  {data.date}  {data.prix} {data.actif.toString()} 
-<Button variant="dark" onClick={()=>change(Id,index)} >Desactiver l'évènement</Button></p> 
-</div>
+<tr key={index}>
+<th>{data.title}</th>
+<th>{subStr}...</th> 
+<th>{data.date}</th>
+<th>{data.prix}</th>
+<th>{data.actif.toString()}</th> 
+<th><Button variant="dark" onClick={()=>change(Id,index)} >Desactiver</Button></th> 
+</tr>
 )
 })
 return (
+    <div className="eventBloc">
 <div className="eventL">
-<h4>Liste des évènements</h4>
-{arr}
+        <h3>Liste des évènements</h3>
+</div>
+<table>
+                <tr>
+                    <th style={{fontWeight:"bold"}}>Titre</th>
+                    <th style={{fontWeight:"bold"}}>Description</th>
+                    <th style={{fontWeight:"bold"}}>Date</th>
+                    <th style={{fontWeight:"bold"}}>Prix</th>
+                    <th style={{fontWeight:"bold"}}>Editer</th>
+                </tr>
+      {arr}
+      </table>
 </div>
 )
 }

@@ -12,14 +12,14 @@ function RoleConnect(){
         <div className="user">
             <img src={user} className="userIcon" alt=""/>
             <Link to={'./login'} >
-            <Button type="submit" variant="dark" className="w-100 mt-2">Connexion utilisateur</Button>
+            <Button type="submit" variant="dark" className="rol w-100 mt-2">Connexion utilisateur</Button>
             </Link>
         </div>
 
         <div className="org">
             <img src={Org} className="orgIcon" alt=""/>
         <Link to={'./loginOrg'}>
-        <Button type="submit" variant="dark" className="w-100 mt-2">Connexion organisateur</Button>
+        <Button type="submit" variant="dark" className=" rolo w-100 mt-2">Connexion organisateur</Button>
         </Link>
        </div>
        

@@ -59,14 +59,14 @@ function App(){
                 </Route>
 
                 <Route path={"/loginOrg"}>
-                    <LoginOrg />
+                    <LoginOrg update={update} setUpdate={setUpdate} />
                 </Route>
 
                 <Route path={"/loginAdmin"}>
-                    <LoginAdmin />
+                    <LoginAdmin update={update} setUpdate={setUpdate} />
                 </Route>
                 <Route path={"/loginAS"}>
-                    <LoginAS />
+                    <LoginAS update={update} setUpdate={setUpdate} />
                 </Route>
 
                 <Route path={"/forgetPass"}>

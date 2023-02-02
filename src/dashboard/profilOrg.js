@@ -63,7 +63,7 @@ function ProfilOrg(){
  }
  
     return(
-      <div className='profilOrg'>
+      <div className='profil'>
         <img src={utilisateur1} alt='' className='imgProfil'/>  
         <input type="file" className='img' accept='image/*'/>
         <div className='info'>
@@ -74,10 +74,10 @@ function ProfilOrg(){
         <p>{ localStorage.getItem('gerant')}</p>
         <p>{ localStorage.getItem('num_RCS')}</p>
         </div>
-        <Button type="submit" variant="dark"  className="modif" onClick={modif}>Modifier</Button>
+        <Button type="submit" variant="dark"  className="modifO" onClick={modif}>Editer votre profil</Button>
        {show3?  
         <Form className="formModif">
-        <h3 >Modifier vos informations</h3>
+        <h5>Modifier vos informations</h5>
          <Form.Group >
          <Form.Control 
             value={ localStorage.getItem('id')} ref={idInputRef} type="hidden"/>
@@ -93,8 +93,10 @@ function ProfilOrg(){
          <Form.Group>
          <Form.Label>Gérant</Form.Label>
          <Form.Control placeholder={ localStorage.getItem('gerant')} ref={gerantInputRef} />
-         </Form.Group>
+         </Form.Group><br/>
          <Button type="submit" variant="dark" onClick={setUpdateOrg}>Modifier</Button>
+         <Button type='reset'  className="valid"  variant="dark" onClick={modif} >Annuler</Button>
+
          </Form>
       :null}
       </div>

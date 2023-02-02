@@ -31,7 +31,7 @@
     background-color: transparent;
     border: 1px solid white;
 }
-/*Home*/
+/*Home bannière*/
 .image{
     margin-top: 55px;
 }
@@ -62,7 +62,15 @@
         left: 25%;
     }
     }
-    
+/*création évènement*/
+.event{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 70px;
+    border: 1PX solid black;
+    border-radius: 5px;
+}
+/*home event list*/
 .eventList{
     display: flex;
     margin-left: 20px;
@@ -92,8 +100,7 @@
 /*footer*/
 .footer{
     background: rgba(17, 16, 16, 0.93);
-    color: white;
-    
+    color: white; 
 }
 
 /*Login*/
@@ -224,13 +231,9 @@
    box-shadow: 0 10px 10px  black;
 }
 .orgIcon{
-    width: 190px;
+    width: 210px;
     margin-left: 30%;
     margin-top: 30px;
-}
-.rolo{
-    position: relative;
-    top: 15px;
 }
 
 @media only screen and (max-width:1100px){
@@ -244,20 +247,18 @@
 }
 @media only screen and (max-width:1000px){
     .role{
-        margin-left: 20px;
-        
+        margin-left: 25px;
     }
         .user{
             width: 47%;
             height: 250px;
-           
         }
         .org{
             width: 47%;
             height: 250px;
         }
         .orgIcon{
-            margin-left: 30%;   
+            margin-left: 27%;   
            }
            .userIcon{
                margin-left: 30%;
@@ -267,19 +268,10 @@
         font-size: 13px;
     }
     .rolo{
-        position: relative;
-        top: 15px;
         font-size: 13px;
     }
 } 
-@media only screen and (max-width:800px){
-    .userIcon{
-        margin-left: 100px;
-    }
-    .orgIcon{
-    margin-left:80px;
-    }
-}
+
 @media only screen and (max-width:700px){
     .userIcon{
         margin-left: 70px;
@@ -293,33 +285,40 @@
         top: 27px;
     }
 }
-@media only screen and (max-width:500px){
+@media only screen and (max-width:600px){
     .userIcon{
         margin-left: 30px;
     }
     .orgIcon{
         width: 170px;
-        margin-left: 26px;
+        margin-left: 24px;
     }
 }
 /*dashboard*/
 .dashboard{
-   margin-top: 70px;
+    display: flex;
 }
-
+.bar{
+    background: rgba(17, 16, 16, 0.93);
+    width: 100%;
+    height: 50px;
+    margin-top: 50px;
+}
+.profil{
+    margin-top: 80px;
+    margin-left: -99%;
+}
 .imgProfil{
-    width: 200px;
-    height: 190px;
-    position: relative;
+    width: 215px;
+    height: 200px;
     border: 5px solid black;
     border-radius: 50%;
     background-size: cover;
-    left: 15px;
 }
 .img{
-    position: absolute;
-    top: 34%;
-    left: 12%;
+    position: relative;
+    left: -52px;
+    top: 85px;
     outline: none;
     width: 90px;
     height: 90px;   
@@ -334,42 +333,28 @@
  -webkit-user-select: none;
 }
 .info{
-    position: relative;
     font-weight: bold;
     color: black;
     font-size: 15px;
-    top: 20px;
-    left: 15px;
+    margin-top: 20px;
 }
-.modif{
-    position: relative;
-    top: 10px;
-    left: 10px;
+.valid{
+    margin-left: 20px;
 }
 .formModif{
-    position: absolute;
     margin-top: 20px;
-    margin-left: 15px;
-    width: 25%;
-}
-.formModifU{
-    position: relative;
-    margin-top: 20px;
-    margin-left: 15px;
-    width: 25%;
 }
 /*interest*/
 .interest{
-        position: absolute;
-        top: 70px;
-        width: 50%;
-        height: 90px;
-        border-radius: 5px;
-        left: 40%;
+        margin-top: 70px;
+        margin-left: 70px;
     } 
+    .interest h5{
+        color: whitesmoke;
+    }
     table{
         border-collapse: collapse;
-        width: 100%;
+        width: 190%;
         letter-spacing: 1px;
         font-size: 13px;
     }
@@ -377,98 +362,367 @@
         padding: 10px 0;
         font-weight: 400;
     }
-    td{
-        border-top: 0.5px solid #999;
-        text-align: center;
-        color: rgb(75, 156, 128);
+
+@media only screen and (max-width:1250px){
+    .interest h5{
+        font-size: 15px;
     }
-    tr{
-        border-bottom: 0.5px;
+    table{
+        width: 135%;
+       
     }
-.eventL{
-    position: absolute;
-    top: 70px;
-    right: 30px;
-    width: 70%;
-    font-size: 15px;
-    
-} 
-.userBloquer {
-    position: relative;
-   margin-top: 30%;
-   margin-left: 10px;
 }
-.orgBloquer {
-    position: absolute;
-   top: 137%;
-   width: 50%;
-    right: 0;
- }
+
+@media only screen and (max-width:900px){
+    table{
+        margin-left: -40px;
+    } 
+}
+@media only screen and (max-width:840px){
+    .dashboard{
+        display: block;
+        margin-left: 50%;
+    }
+     .bar{
+        display: none;
+    }
+    .profil{
+        display: flex;
+        margin-top: -20px;
+    }
+    .imgProfil{
+        width: 200px;
+        height: 200px;
+        margin-top: 90px;
+        margin-left: 20px;
+    }
+    .img{      
+        margin-top: 20%; 
+        margin-left: 8px;
+    }
+    .info{
+        margin-top: 120px;
+        margin-left: 50px;
+    }
+    .modif{
+        position: absolute;
+        top: 47%;
+        left: 15px;
+        width: 95%;
+    }
+    .formModif{
+       margin-top: 170%;
+       margin-left: -180%;
+        width: 220%;
+    }
+    .interest {
+        position: relative;
+    }
+    
+    .interest h5{
+        font-size: 18px;
+        margin-left: -140%;
+        color: black;
+    }
+    table{
+        margin-left: -140%;
+        width: 220%;
+    }
+    
+}
+@media only screen and (max-width:700px){
+    .info{
+        margin-left: -40px;
+    } 
+    
+}
+
+@media only screen and (max-width:735px) {
+    .formModif{
+        margin-top: 200%;  
+    } 
+    .interest h5{
+        margin-left: -140% ;
+    } 
+    table{
+        width: 240%;
+        margin-left: -140%;
+    }
+}
+@media only screen and (max-width:600px) {
+    .formModif{
+        margin-top: 230%;  
+        margin-left: -200%;
+    } 
+    .interest h5{
+        margin-left: -160%;
+    }
+    table{
+        margin-left: -160%;
+    }
+}
+@media only screen and (max-width:550px) {
+    .formModif{
+        margin-top: 270%;  
+    } 
+    .img{
+        margin-top: 29%; 
+     }
+}
+@media only screen and (max-width:520px) {
+    .formModif{
+        margin-top: 300%;  
+    } 
+    .interest h5{
+        font-size: 15px;
+        margin-left: -180%;
+    }
+    table{
+        font-size: 12px;
+        margin-left: -180%;
+        width: 270%;
+    }
+   
+}
+
 /*dashboard Organisateur*/
 .ListEvent{
-    margin-top: -30%;
-    margin-left: 40%;
+    position: absolute;
+    top: 100px; 
+    left: 25%;
+}
+.ListEvent table{
+    width: 130%;
+}
+.ListEvent Button{
+    margin-left: 10px;
 }
 .buttonEvent{
-    position: absolute;
-    right: 10px;
-    top: 77px;
+    position: relative;
+    top: 10.5%;
+    left: 55px;
+    width: 250px;
+    font-size: 15px;
+    margin-left: -50px; 
 }
+@media only screen and (max-width:1300px){
+    .ListEvent table{
+        width: 100%;
+        margin-left: 30px;  
+    }
+    .ListEvent h3{
+        margin-left: 30px;
+    }
+}
+
+@media only screen and (max-width:1200px){
+    .ListEvent table{
+        width: 95%;
+        margin-left: 70px;
+    } 
+    .ListEvent Button{
+        font-size: 14px;
+    }
+    .ListEvent h3{
+        margin-left: 70px;
+    }
+    
+}
+@media only screen and (max-width:1100px){
+    .dashboard{
+        display: block;
+        margin-left: 50%;
+    }
+     .bar{
+        display: none;
+    }
+    .profil{
+        display: flex;
+        margin-top: -20px;
+    }
+    .imgProfil{
+        width: 200px;
+        height: 200px;
+        margin-top: 90px;
+        margin-left: 20px;
+    }
+    .img{      
+        margin-top: 15%; 
+        margin-left: -5px;
+    }
+    .info{
+        margin-top: 85px;
+        margin-left: 50px;
+    }
+    .modifO{
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        
+    }
+    .formModif{
+       margin-top: 35%;
+       margin-left: -45%;
+        width: 90%;
+    }
+    .ListEvent {
+        position: relative;
+    }
+    .ListEvent h3{
+        margin-left: -120%;
+        margin-top: -30px;
+    }
+    .ListEvent table{
+        margin-left: -120%;
+        width: 220%;
+    }
+    .buttonEvent{
+        margin-top: -59%;
+        margin-left: -70%;
+    }
+    
+}
+@media only screen and (max-width:995px){
+    .info{
+        margin-left: -40px;
+    } 
+    .ListEvent table{
+        width: 200%;
+    }
+    .buttonEvent{
+       margin-top: -60%;
+    }
+}
+
+@media only screen and (max-width:800px) {
+   .ListEvent table{
+        font-size: 11px;  
+    }
+    .ListEvent Button{
+        font-size: 11px;
+    } .buttonEvent{
+        margin-top: -60%;
+     }
+}
+@media only screen and (max-width:750px) {
+    .ListEvent table{
+        width: 210%; 
+    }
+    .buttonEvent{
+        margin-top: -60%;
+     }
+}
+@media only screen and (max-width:550px) {
+    .formModif{
+        margin-top: 270%;  
+    } 
+    .img{
+        margin-top: 29%; 
+     }
+}
+@media only screen and (max-width:520px) {
+    .formModif{
+        margin-top: 300%;  
+    } 
+    .ListEvent table{
+  width: 210%;
+  font-size: 10px;
+    }
+   .ListEvent Button{
+    margin-bottom: 10px;
+   }
+   .buttonEvent{
+    margin-top: -194%;
+    margin-left: 18px;
+ }
+   
+}
+
  
-.event{
-    width: 40%;
-    border: 1px solid black;
-    border-radius: 5px;
-}
 /*modification evenements*/
 .modifEvent{
     width: 40%;
-    height: 650px;
-    box-shadow: 0 10px 10px  rgb(138, 161, 182);
-    margin: 20px auto;
-    background: #005C96;
-    padding-left: 40px;
-}
-.modifEvent h3{
-    padding-top: 30px;
-}
-.modifProfil input{
-    width: 250px;
-}
-
-.modifEvent .valid{
-    color: black;
+    margin: 75px auto;
     border: 1px solid black;
-    position: relative;
-    top: -10px;
-}
-
-.dashboardAd .listEvent{
-    top: -95px;
-}
-/*interest*/
-
-.interest .listEvent{
-    top: 5px;
-    text-align: center;
-    width: 90%;
-    font-size: 20px;
+    border-radius: 5px;
 }
 /*list participant*/
 .listPart{
-    background: #005C96;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 10px;
-    width: 50%;
-    height: 40px;
-    position: relative;
-    left: 20px;
+    margin-top: 80px;
+    margin-left: 20px;
+}
+.listPart table{
+   width: 100%;
+}
+@media only screen and (max-width:900px) {
+    .listPart table{
+        margin-left: -10%;
+    }
+}
+/*dashboard super admin*/
+.dashboardAS{
+    margin-top: 80px;
+}
+.dashboardAS Button{
+    margin-left: 20px;
+}
+.Liste{
+    background: rgb(15, 14, 14);
+    width: 100%;
+    height: 50px;
     color: white;
 }
-.list {
-    position: relative;
-    text-align: center;
-    left: 20px;
-    
+.Liste .titre{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.dashboardAS table{
+    margin-left: 20px;
+    width: 110%;
+}
+.use{
+    background: rgb(15, 14, 14);
+    width: 100%;
+    height: 50px;
+    color: white;
+}
+.use .titre{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.userBloquer table{
+    margin-left: 20px;
+    width: 112%;
+}
+.headOrg {
+    background: rgb(15, 14, 14);
+    width: 100%;
+    height: 50px;
+    color: white;
+ }
+ .headOrg h3{
+    margin-top: 10px;
+    margin-left: 15px;
+ }
+.orgBloquer table{
+ margin-left: 20px;
+ width: 104%;
+}
+/*dashboard Admin*/
+.dashboardAD{
+    margin-top: 55px;
+}
+.eventL{
+    background: rgb(15, 14, 14);
+    width: 100%;
+    height: 50px;
+    color: white;
+}
+.headEvent{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.eventBloc table{
+    width: 110%;
+    margin-left: 20px;
 }

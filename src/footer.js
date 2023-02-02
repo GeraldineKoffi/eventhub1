@@ -23,6 +23,7 @@ function Footer(){
               Nos Contacts
             </p>
             <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' , color:"white"}}>
+            <p>0575566104</p>
               <Link to={"/"} className="text-decoration-none text-white">eventhub@gmail.com</Link>
             </CDBBox>
           </CDBBox>

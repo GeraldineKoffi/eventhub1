@@ -5,6 +5,7 @@ import Profil from './dashboard/profil'
 function dashboard(){
     return(
         <div className="dashboard">
+            <div className="bar"></div>
            <Profil/>
            <Interest/>
         </div>

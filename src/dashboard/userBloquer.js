@@ -32,25 +32,29 @@ const arr = data
     return(
         
         <tr key={index} >
-        <td>{data.lastName}</td><td>{data.firstName}</td><td>{data.phone}</td><td>{data.mail}</td><td>{data.actif}</td>  
-       <td> <Button variant="dark" onClick={()=>change(Id,index)} >Editer l'utilisateur</Button></td>
-        
+        <th>{data.lastName}</th>
+        <th>{data.firstName}</th>
+        <th>{data.phone}</th>
+        <th>{data.mail}</th>
+        <th>{data.actif}</th>  
+       <th><Button variant="dark" onClick={()=>change(Id,index)}>Désactiver</Button></th>
         </tr>
     )
 })
 return(
     <div className='userBloquer'>
-        <h2>Liste des utilisateurs</h2>
+        <div className='use'>
+        <h3 className='titre'>Liste des utilisateurs</h3>
+        </div>
             <table>
                 <tr>
-                     <td>Lastname</td>
-                     <td>Firstname</td>
-                     <td>Telephone</td>
-                     <td>Mail</td>
-                     <td>Statut</td>
-                     <td>Edit</td>
+                     <th style={{fontWeight:"bold"}}>Nom</th>
+                     <th style={{fontWeight:"bold"}}>Prénom</th>
+                     <th style={{fontWeight:"bold"}}>Téléphone</th>
+                     <th style={{fontWeight:"bold"}}>Email</th>
+                     <th style={{fontWeight:"bold"}}>Statut</th>
+                     <th style={{fontWeight:"bold"}}>Editer</th>
                  </tr>
-                 <tr><hr width="100%"/></tr>
             {arr}
         </table>
 
