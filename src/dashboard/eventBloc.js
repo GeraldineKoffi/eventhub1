@@ -54,6 +54,7 @@ return (
                     <th style={{fontWeight:"bold"}}>Description</th>
                     <th style={{fontWeight:"bold"}}>Date</th>
                     <th style={{fontWeight:"bold"}}>Prix</th>
+                    <th style={{fontWeight:"bold"}}>Statut</th>
                     <th style={{fontWeight:"bold"}}>Editer</th>
                 </tr>
       {arr}

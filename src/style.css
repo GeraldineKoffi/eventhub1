@@ -663,8 +663,27 @@
 .dashboardAS{
     margin-top: 80px;
 }
-.dashboardAS Button{
+.créerA{
+    position: absolute;
+   right: 20px;
+   top: 70px;
+}
+.dashboardAS .img{
+    margin-top: 60px;
+}
+.headAd{
+    background: rgb(15, 14, 14);
+    width: 100%;
+    height: 50px;
+    color: white;
+}
+.headAd h3{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.adminBloc table{
     margin-left: 20px;
+    width: 103%;
 }
 .use{
     background: rgb(15, 14, 14);
@@ -678,7 +697,7 @@
 }
 .userBloquer table{
     margin-left: 20px;
-    width: 112%;
+    width: 111.5%;
 }
 .headOrg {
     background: rgb(15, 14, 14);
@@ -715,11 +734,11 @@
     height: 50px;
     color: white;
 }
-.headEvent{
+.eventL h3{
     margin-left: 15px;
     margin-top: 10px;
 }
 .eventBloc table{
-    width: 110%;
+    width: 109.5%;
     margin-left: 20px;
 }
