@@ -10,8 +10,10 @@ function dashboardAd(){
 
     return(
         <div className="dashboardAD">
-           <ProfilAD />
+           <ProfilAD /> 
+           <div style={{marginTop:"20px"}}>
            <EventBloc /> 
+           </div>
            <UserBloquer/>
            <OrgBloquer/>
 

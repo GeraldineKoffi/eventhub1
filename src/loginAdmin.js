@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import {Redirect, Link} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import Col from 'react-bootstrap/Col';
 import axios from 'axios'
 
 function LoginAdmin(){

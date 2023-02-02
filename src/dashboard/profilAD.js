@@ -63,7 +63,7 @@ function profilAD(){
  }
  
     return(
-      <div className='profil'>
+      <div className='profilAD'>
         <img src={utilisateur1} alt='' className='imgProfil'/>  
         <input type="file" className='img' accept='image/*'/>
         <div className='info'>
@@ -72,9 +72,9 @@ function profilAD(){
         <p>{ localStorage.getItem('mail')}</p>
         <p>{ localStorage.getItem('telephone')}</p>
         </div>
-        <Button type="submit" variant="dark"  className="modif" onClick={modif}>Modifier</Button>
+        <Button type="submit" variant="dark"  className="modifAD" onClick={modif}>Editer votre profil</Button>
        {show3?  
-        <Form className="formModif">
+        <Form className="formModifAD">
         <h3 >Modifier vos informations</h3>
          <Form.Group >
          <Form.Control 

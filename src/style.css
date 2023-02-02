@@ -666,20 +666,6 @@
 .dashboardAS Button{
     margin-left: 20px;
 }
-.Liste{
-    background: rgb(15, 14, 14);
-    width: 100%;
-    height: 50px;
-    color: white;
-}
-.Liste .titre{
-    margin-left: 15px;
-    margin-top: 10px;
-}
-.dashboardAS table{
-    margin-left: 20px;
-    width: 110%;
-}
 .use{
     background: rgb(15, 14, 14);
     width: 100%;
@@ -710,7 +696,18 @@
 }
 /*dashboard Admin*/
 .dashboardAD{
-    margin-top: 55px;
+    margin-top: 65px;
+}
+.profilAD{
+    display: flex;
+    margin-left: 20px;
+}
+.modifAD{
+  height: 50px;
+  margin-left: 90px;  
+}
+.profilAD .img{
+    margin-top: 60px;
 }
 .eventL{
     background: rgb(15, 14, 14);
