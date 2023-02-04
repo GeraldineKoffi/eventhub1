@@ -55,9 +55,12 @@ function dashboardOrg() {
     console.log(ta);
   })
   return (
-    <div className="dashboard"> 
+    <div className="dashboardOrg"> 
     <div className='bar'></div>
       <ProfilOrg />
+      <Link to={'./events'}>
+        <Button variant="dark" className="buttonEvent">Créer un nouvel évènement</Button>
+      </Link>
       <div className='ListEvent'>
       <h3>Liste de vos évènements</h3>
       <table>
@@ -71,9 +74,6 @@ function dashboardOrg() {
       {arr}
       </table>
       </div>
-      <Link to={'./events'}>
-        <Button variant="dark" className="buttonEvent">Créer un nouvel évènement</Button>
-      </Link>
 
     </div>
   )
