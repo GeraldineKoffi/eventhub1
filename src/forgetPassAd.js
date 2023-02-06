@@ -49,13 +49,13 @@ function ForgetPassAd(){
            <Form.Control
              required
              type="password"
-             placeholder="Entrez votre mot de passe"
+             placeholder="Entrez un nouveau mot de passe"
              name="confirm" 
              ref={newPassInputRef}
            />
            <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
          </Form.Group>
-         <Button type="submit"  className="btn btn-primary w-100 mt-2">Changer</Button>
+         <Button type="submit" variant="dark" className="btn btn-primary w-100 mt-2">Changer</Button>
         {redirect? <Redirect to="/loginAdmin" />: null}
     </Form>
     )

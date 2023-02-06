@@ -49,7 +49,7 @@ function ForgetPassAS(){
            <Form.Control
              required
              type="password"
-             placeholder="Entrez votre mot de passe"
+             placeholder="Entrez un nouveau mot de passe"
              name="confirm" 
              ref={newPassInputRef}
            />

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { CDBBox} from 'cdbreact';
+import {BsFillTelephoneFill} from 'react-icons/bs';
+import {AiFillMail} from 'react-icons/ai'
 
 function Footer(){
   return (
@@ -23,8 +25,8 @@ function Footer(){
               Nos Contacts
             </p>
             <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' , color:"white"}}>
-            <p>0575566104</p>
-              <Link to={"/"} className="text-decoration-none text-white">eventhub@gmail.com</Link>
+            <p> <BsFillTelephoneFill/>0575566104</p>
+              <Link to={"/"} className="text-decoration-none text-white"><AiFillMail />eventhub@gmail.com</Link>
             </CDBBox>
           </CDBBox>
           <CDBBox>

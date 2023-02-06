@@ -104,7 +104,6 @@ h1{
 /*Login*/
 .login{
     width: 35%;
-    height: 450px;
     border:1px solid black;
     margin:75px auto;
     font-weight:bold;
@@ -145,7 +144,6 @@ h1{
 }
 .forget{
     width: 35%;
-    height: 350px;
     border:1px solid black;
     margin:75px auto;
     font-weight:bold;
@@ -203,7 +201,22 @@ h1{
     padding-left: 30px;
     padding-top:30px;
 }
- 
+ @media (max-width:920px) {
+     .signUp{
+         width: 60%;
+     }
+ }
+ @media (max-width:805px) {
+    .signUp{
+         width: 65%;
+ }
+}
+@media (max-width:680px) {
+    .signUp{
+        width:70%;
+    }
+    
+}
 /*role*/
 .role{
     margin-top: 80px;
