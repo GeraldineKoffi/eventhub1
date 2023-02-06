@@ -725,7 +725,7 @@ h1{
 }
 .userBloquer table{
     margin-left: 20px;
-    width: 108%;
+    width: 103.5%;
 }
 .headOrg {
     background: rgb(15, 14, 14);
@@ -739,7 +739,7 @@ h1{
  }
 .orgBloquer table{
  margin-left: 20px;
- width: 102.5%;
+ width: 98%;
 }
 /*dashboard Admin*/
 .dashboardAD{
@@ -769,6 +769,6 @@ h1{
     margin-top: 10px;
 }
 .eventBloc table{
-    width: 109.5%;
+    width: 105%;
     margin-left: 20px;
 }
