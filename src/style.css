@@ -690,14 +690,15 @@ h1{
 .dashboardAS{
     margin-top: 80px;
 }
+.profilAS{
+    margin-left:20px;
+}
 .créerA{
     position: absolute;
    right: 20px;
    top: 70px;
 }
-.dashboardAS .img{
-    margin-top: 60px;
-}
+
 .headAd{
     background: rgb(15, 14, 14);
     width: 100%;
@@ -724,7 +725,7 @@ h1{
 }
 .userBloquer table{
     margin-left: 20px;
-    width: 111.5%;
+    width: 108%;
 }
 .headOrg {
     background: rgb(15, 14, 14);
@@ -738,11 +739,11 @@ h1{
  }
 .orgBloquer table{
  margin-left: 20px;
- width: 104%;
+ width: 102.5%;
 }
 /*dashboard Admin*/
 .dashboardAD{
-    margin-top: 65px;
+    margin-top: 60px;
 }
 .profilAD{
     display: flex;
@@ -750,10 +751,12 @@ h1{
 }
 .modifAD{
   height: 50px;
-  margin-left: 90px;  
+  margin-left: 70%; 
 }
-.profilAD .img{
-    margin-top: 60px;
+
+.formModifAD{
+    margin-top: 10%;
+    margin-left: -30%;
 }
 .eventL{
     background: rgb(15, 14, 14);

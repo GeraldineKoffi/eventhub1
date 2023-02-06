@@ -3,6 +3,7 @@ import Axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
+import event from './mesImages/event.jpg'
 
 function EventList() {
     const [data, setDate] = useState([])
@@ -57,6 +58,7 @@ function EventList() {
     if(data.statut==="Payant"){
         return (
             <div  key={index}>
+                <img src={event} alt=""/>
                 <h5 className='title'>{data.title} </h5>
                 <h5 className='descrp'>{data.description}</h5>
                 <h5 className='date'> {data.date}</h5>  
@@ -68,6 +70,7 @@ function EventList() {
         }else{
             return(
                 <div className='eventList' key={index}>
+                     <img src={event} alt=""/>
                 <h5 className='title'>{data.title} </h5>
                 <h5 className='descrp'>{data.description}</h5>
                 <h5 className='date'> {data.date}</h5>  
