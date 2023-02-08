@@ -32,19 +32,15 @@ function ProfilAS(){
                onClick={()=>setImageCrop(true)}
                src={profileFinal.length ? profileFinal: utilisateur1} alt=""/>
    
-               <Dialog style={{position:"absolute", top:"20px",left:"35%"}}
+               <Dialog style={{position:"absolute",background:"white", top:"25px",left:"15%"}}
                visible={imageCrop}
-               header={()=>(
-                   <p htmlFor="" className="text-2xl font-semiblod textcolor">
-                      Mise à jour de votre photo de profil
-                   </p>
-               )}
+              
                onHide={()=>setImageCrop(false)}
                >
                    <div className="confirmation-content flex flex-column align-items-center">
                        <Avatar 
-                       width={500}
-                       heigth={400}
+                       width={200}
+                       heigth={200}
                        onCrop={onCrop}
                        onClose={onClose}
                        src={src}
@@ -52,7 +48,7 @@ function ProfilAS(){
                        backgroundColor={"#474649"}
                    />
           
-               <Button variant="dark" onClick={saveCropImage} icon="pi pi-check">Changer</Button>
+               <Button variant="dark" onClick={saveCropImage} icon="pi pi-check">Aplliquer</Button>
                </div>
                </Dialog>
            <InputText 

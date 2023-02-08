@@ -3,8 +3,15 @@ import {Redirect} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
+import Modal from 'react-bootstrap/Modal';
+
 
 function Inscription() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [validated, setValidated] = useState(false);
   const nameInputRef = useRef();
   const prenomInputRef = useRef();
@@ -117,6 +124,17 @@ function Inscription() {
         </Form.Group>
       <Button type="submit" variant="dark" className="w-100 mt-2">S'inscrire</Button>
       {redirect ? <Redirect to ="/login"/>:null}
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>Vous êtes bien inscrit , connectez-vous maintenant</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Form>
   );
 }

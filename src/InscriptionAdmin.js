@@ -3,8 +3,16 @@ import {Redirect} from 'react-router-dom'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios'
+import Modal from 'react-bootstrap/Modal';
 
 function InscriptionAdmin() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
+
   const [validated, setValidated] = useState(false);
   const nameInputRef = useRef();
   const prenomInputRef = useRef();
@@ -115,8 +123,21 @@ function InscriptionAdmin() {
           />
           <Form.Control.Feedback type="invalid">Ce champs est requied!</Form.Control.Feedback>
         </Form.Group>
-      <Button type="submit" variant="dark" className="w-100 mt-2">S'inscrire</Button>
-      {redirect ? <Redirect to ="/loginAdmin"/>:null}
+      <Button type="submit" variant="dark" className="w-100 mt-2" onClick={handleShow}>S'inscrire</Button>
+    {(localStorage.getItem("role")==="super admin")?
+      <Redirect to ="/dashboardSup"/>:null
+
+    }
+       <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+        </Modal.Header>
+        <Modal.Body>Administrateur crée</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Form>
   );
 }
